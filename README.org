@@ -4,17 +4,63 @@
 - [[#about][About]]
   - [[#qtile][Qtile]]
 - [[#recommended-packages][Recommended Packages]]
+- [[#known-issues][Known Issues]]
+- [[#notes][Notes]]
 
 * About
 ** Qtile
-[[https://raw.githubusercontent.com/Sheape/Assets/master/qtile/Candice_rice_image.png?token=AUUDKTSQVH2GKXJVMKRXP53BMZKJI]]
-- *[WIP]* If there's any issues, please report it. I can assure you, my qtile config is not optimized to all desktop resolutions. Only 1600X900 is the resolution supported yet. \\
+[[./qtile/.config/qtile/assets/thumbnails/Candice_rice_image.png]]
+- *[WIP]* If there's any issues, please report it. I can assure you, my qtile config is not optimized to all desktop resolutions. 1600X900 is the only resolution supported yet. \
 - Here is the link for my qtile config separated to this repo. \
   https://github.com/Sheape/qtile-config \\
 * Recommended Packages
-|---------+---------------------------------------------|
-| Package | Description                                 |
-|---------+---------------------------------------------|
-| dunst   | Minimal and Lightweight Notification Daemon |
-|         |                                             |
-|         |                                             |
+|----------------------+-------------------------------------------------------------------------------|
+| Package              | Description                                                                   |
+|----------------------+-------------------------------------------------------------------------------|
+| dunst                | Minimal and Lightweight Notification Daemon.                                  |
+| rofi                 | [WIP] An alternative to dmenu as a very customizable application launcher.    |
+| crontab              | [WIP] Scheduling task, commands, and scripts. (For Health notifier)           |
+| nvchad               | A neovim distribution, lazy-loaded plugins configured in lua with amazing UI. |
+| qtile (required)     | It's just a yes.                                                              |
+| starship             | An amazing universal shell prompt for bash, fish, and zsh.                    |
+| alacritty            | Lightweight, minimal, and fast terminal emulator.                             |
+| picom (jonaburg-git) | X11 Compositor                                                                |
+| pomotroid            | An Electron-based configurable pomodoro timer.                                |
+| redshift             | A f.lux inspired Bluelight filter for your eyes during the night.             |
+| zsh                  | An interactive POSIX-compliant shell.                                         |
+| exa                  | Alternative for ls, written in rust.                                          |
+| maim                 | A screenshot utility as a fork of scrot.                                      |
+| rofimoji             | [WIP] Rofi script that lets you search and copy emojies.                      |
+| pfetch               | Lesser and a more minimal alternative for neofetch.                           |
+|----------------------+-------------------------------------------------------------------------------|
+* Known Issues
+- No rofi config yet, I'm adding more stuff into it currently such as volume, notification history log, shutdown/reboot menu, calendar. \
+- Zsh plugins can be installed from the AUR however, the files should be located in ==/usr/share/zsh/plugins/zsh-auto-tab/zsh-auto-tab.zsh== \
+- Adjusting my config based on everyone's dpi is going to be a hard task. So if anyone could help, I would really appreciate it. \
+- Since the installation script is not yet made, cronjobs in my crontabs is not yet here. I'll provide my cronjob tasks here, you can adjust it to your liking.
+  1. Install Crontab if you did not yet.
+  2. Launch the terminal and do crontab -e
+  3. If it warns you about the EDITOR not selected, add export EDITOR="nano". If you want to use vim or neovim though, you can just replace nano with it.
+  4. Add these into your crontab.
+    #+BEGIN_EXAMPLE
+  SHELL=/bin/sh
+  MAILTO=root
+  PATH=/bin:/sbin:/usr/sbin:/usr/bin
+
+  */45 * * * * DISPLAY=:0.0 DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/1000/bus" /usr/bin/notify-send -u normal -i $HOME/.config/dunst/icons/water.png "Health" "Drink some water."
+  */30 * * * * DISPLAY=:0.0 DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/1000/bus" /usr/bin/notify-send -u normal -i $HOME/.config/dunst/icons/eye.png "Health" "Look something far away."
+  */5 * * * * DISPLAY=:0.0 DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/1000/bus" /usr/bin/notify-send -u normal -i $HOME/.config/dunst/icons/posture.png "Health" "Check your posture."
+  0 12 * * * DISPLAY=:0.0 DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/1000/bus" /usr/bin/notify-send -u normal -i $HOME/.config/dunst/icons/lunch.png "Meal" "It's Lunch time!!"
+  30 16 * * * DISPLAY=:0.0 DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/1000/bus" /usr/bin/notify-send -u normal -i $HOME/.config/dunst/icons/brunch.png "Meal" "Eat some snacks!!"
+  0 20 * * * DISPLAY=:0.0 DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/1000/bus" /usr/bin/notify-send -u normal -i $HOME/.config/dunst/icons/dinner.png "Meal" "It's Dinner time!!"
+  30 22 * * * DISPLAY=:0.0 DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/1000/bus" /usr/bin/notify-send -u normal -i $HOME/.config/dunst/icons/sleep.png "Health" "Time for bedtime stories!!"
+  */10 18-23 * * * /usr/bin/pgrep redshift && true || /usr/bin/redshift &
+
+    #+END_EXAMPLE
+
+- My emacs config won't be released until probably a couple of months, since I wanted to customize the theme of it and it requires around 80+ colors to be able to do it.
+
+- You can shout at me as much as you want it to XD. I just riced everything that I can during the summer and schoolworks can be overwhelming sometimes so... I don't have that much time currently. This is just a hobby for me.
+* Notes
+- The GTK theme that I use is orchis-gtk-theme, I will modify some of its colors to my liking.
+- Icon theme used is Tela-circle-pink.
