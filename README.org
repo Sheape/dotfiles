@@ -1,4 +1,4 @@
-#+TITLE: My Qtile Config
+#+TITLE: Dotfiles
 
 * Table of Contents :toc:
 - [[#about][About]]
@@ -30,13 +30,13 @@
 | zsh                  | An interactive POSIX-compliant shell.                                         |
 | exa                  | Alternative for ls, written in rust.                                          |
 | maim                 | A screenshot utility as a fork of scrot.                                      |
-| rofimoji             | [WIP] Rofi script that lets you search and copy emojies.                      |
+| rofimoji             | [WIP] Rofi script that lets you search and copy emojis.                       |
 | pfetch               | Lesser and a more minimal alternative for neofetch.                           |
 |----------------------+-------------------------------------------------------------------------------|
 * Known Issues
 - No rofi config yet, I'm adding more stuff into it currently such as volume, notification history log, shutdown/reboot menu, calendar.
 - Zsh plugins can be installed from the AUR however, the files should be located in
-- ==/usr/share/zsh/plugins/zsh-auto-tab/zsh-auto-tab.zsh==
+== /usr/share/zsh/plugins/zsh-auto-tab/zsh-auto-tab.zsh ==
 - Adjusting my config based on everyone's dpi is going to be a hard task. So if anyone could help, I would really appreciate it.
 - Since the installation script is not yet made, cronjobs in my crontabs is not yet here. I'll provide my cronjob tasks here, you can adjust it to your liking.
   1. Install Crontab if you did not yet.
@@ -59,8 +59,7 @@
 
     #+END_EXAMPLE
 
-- My emacs config won't be released until probably a couple of months, since I wanted to customize the theme of it and it requires around 80+ colors to be able to do it.
-
+- My emacs config won’t be released until probably a couple of months, since I want to customize the theme and it requires around 80+ colors to be able to do it.
 - You can shout at me as much as you want it to XD. I just riced everything that I can during the summer and schoolworks can be overwhelming sometimes so... I don't have that much time currently. This is just a hobby for me.
 * Notes
 - The GTK theme that I use is orchis-gtk-theme, I will modify some of its colors to my liking.
