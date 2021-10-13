@@ -1,0 +1,9 @@
+# Aliases for Zsh
+
+alias ls="exa -lah"
+alias mv="mv -i"
+alias rm="rm -i"
+alias cp="cp -i"
+alias vim="nvim"
+alias grep="grep --color=auto"
+

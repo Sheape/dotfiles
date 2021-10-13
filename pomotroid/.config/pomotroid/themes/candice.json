@@ -1,0 +1,15 @@
+{
+  "name": "Candice",
+  "colors": {
+    "--color-long-round": "#a4d8d8",
+    "--color-short-round": "#af93b9",
+    "--color-focus-round": "#ef7981",
+    "--color-background": "#122125",
+    "--color-background-light": "#18242C",
+    "--color-background-lightest": "#de9598",
+    "--color-foreground": "#ddc3cd",
+    "--color-foreground-darker": "#ddc3cd",
+    "--color-foreground-darkest": "#ffffff",
+    "--color-accent": "#ef7981"
+  }
+}

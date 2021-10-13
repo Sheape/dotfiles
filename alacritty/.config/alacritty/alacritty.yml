@@ -1,0 +1,48 @@
+env:
+  TERM: xterm-256color 
+
+font:
+  normal:
+    family: JetBrains Mono Nerd Font
+    style: Regular
+  size: 11
+
+colors:
+  primary:
+    background: '#122125'
+    foreground: '#c5c8c6'
+
+  normal:
+    black: '#122125'
+    red: '#ef7981'
+    green: '#93E9BE'
+    yellow: '#ecb09a'
+    blue: '#af93b9'
+    magenta: '#de9598'
+    cyan: '#a4d8d8'
+    white: '#ddc3cd'
+
+  bright:
+    black: '#0e171b'
+    red: '#ef7981'
+    green: '#93E9BE'
+    yellow: '#ecb09a'
+    blue: '#af93b9'
+    magenta: '#de9598'
+    cyan: '#a4d8d8'
+    white: '#ddc3cd'
+
+  dim:
+    black: '#122125'
+    red: '#ef7981'
+    green: '#b0b766'
+    yellow: '#ecb09a'
+    blue: '#af93b9'
+    magenta: '#de9598'
+    cyan: '#a4d8d8'
+    white: '#ddc3cd'
+
+window:
+  padding:
+    x: 35
+    y: 30 

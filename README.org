@@ -1,0 +1,20 @@
+#+TITLE: My Qtile Config
+
+* Table of Contents :toc:
+- [[#about][About]]
+  - [[#qtile][Qtile]]
+- [[#recommended-packages][Recommended Packages]]
+
+* About
+** Qtile
+[[https://raw.githubusercontent.com/Sheape/Assets/master/qtile/Candice_rice_image.png?token=AUUDKTSQVH2GKXJVMKRXP53BMZKJI]]
+- *[WIP]* If there's any issues, please report it. I can assure you, my qtile config is not optimized to all desktop resolutions. Only 1600X900 is the resolution supported yet. \\
+- Here is the link for my qtile config separated to this repo. \
+  https://github.com/Sheape/qtile-config \\
+* Recommended Packages
+|---------+---------------------------------------------|
+| Package | Description                                 |
+|---------+---------------------------------------------|
+| dunst   | Minimal and Lightweight Notification Daemon |
+|         |                                             |
+|         |                                             |

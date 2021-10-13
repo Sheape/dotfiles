@@ -1,0 +1,6 @@
+[submodule "qtile-config"]
+	path = qtile-config
+	url = https://github.com/Sheape/qtile-config
+[submodule "qtile/.config/qtile"]
+	path = qtile/.config/qtile
+	url = https://github.com/Sheape/qtile-config
