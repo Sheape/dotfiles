@@ -9,10 +9,10 @@
 
 * About
 ** Qtile
-[[./qtile/.config/qtile/assets/thumbnails/Candice_rice_image.png]]
-- *[WIP]* If there's any issues, please report it. I can assure you, my qtile config is not optimized to all desktop resolutions. 1600X900 is the only resolution supported yet. \
-- Here is the link for my qtile config separated to this repo. \
-  https://github.com/Sheape/qtile-config \\
+[[https://github.com/Sheape/qtile-config/blob/5d721930a1a7ddcbe1cac1e8deb035f7b9a6e780/assets/thumbnails/Candice_rice_image.png]]
+- *[WIP]* If there's any issues, please report it. I can assure you, my qtile config is not optimized to all desktop resolutions. 1600X900 is the only resolution supported yet.
+- Here is the link for my qtile config separated to this repo.
+  https://github.com/Sheape/qtile-config
 * Recommended Packages
 |----------------------+-------------------------------------------------------------------------------|
 | Package              | Description                                                                   |
@@ -34,9 +34,10 @@
 | pfetch               | Lesser and a more minimal alternative for neofetch.                           |
 |----------------------+-------------------------------------------------------------------------------|
 * Known Issues
-- No rofi config yet, I'm adding more stuff into it currently such as volume, notification history log, shutdown/reboot menu, calendar. \
-- Zsh plugins can be installed from the AUR however, the files should be located in ==/usr/share/zsh/plugins/zsh-auto-tab/zsh-auto-tab.zsh== \
-- Adjusting my config based on everyone's dpi is going to be a hard task. So if anyone could help, I would really appreciate it. \
+- No rofi config yet, I'm adding more stuff into it currently such as volume, notification history log, shutdown/reboot menu, calendar.
+- Zsh plugins can be installed from the AUR however, the files should be located in
+- ==/usr/share/zsh/plugins/zsh-auto-tab/zsh-auto-tab.zsh==
+- Adjusting my config based on everyone's dpi is going to be a hard task. So if anyone could help, I would really appreciate it.
 - Since the installation script is not yet made, cronjobs in my crontabs is not yet here. I'll provide my cronjob tasks here, you can adjust it to your liking.
   1. Install Crontab if you did not yet.
   2. Launch the terminal and do crontab -e
