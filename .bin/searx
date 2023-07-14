@@ -1,0 +1,4 @@
+#!/bin/sh
+
+PROMPT="Search: "
+$BROWSER $(echo "" | dmenu -p $PROMPT)

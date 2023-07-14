@@ -1,0 +1,9 @@
+#!/bin/sh
+
+xmodmap -e "keycode 49 = BackSpace"
+xmodmap -e "keycode 66 = Escape"
+xmodmap -e "keycode 24 = comma"
+xmodmap -e "keycode 25 = period"
+xmodmap -e "keycode 38 = 5"
+xmodmap -e "keycode 39 = 6"
+xmodmap -e "keycode 40 = 7"

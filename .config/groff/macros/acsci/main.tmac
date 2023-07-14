@@ -1,0 +1,28 @@
+.ig
+When creating document with mkdoc,
+this macro file is also sourced with it.
+
+You just have to include .TI at the beginning
+with the subject of your choosing.
+..
+
+.so /home/sheape/.config/groff/macros/acsci/config.tmac
+.so /home/sheape/.config/groff/macros/acsci/env.tmac
+
+
+\" Macro for title using the Title Header
+\" environment.
+
+.de TI
+.
+.ev TH
+.ce
+\*[AI]
+.ce
+\\$1 \n[GL]
+.ce
+
+Name: \fR\*[Au]\fP \t Section: \fR\n[GL]-\*[SC]\fP
+.ev
+.
+..

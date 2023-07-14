@@ -1,0 +1,9 @@
+# required by dev-lang/python-3.9.10-r1::gentoo[gdbm]
+# required by sys-libs/glibc-2.34-r8::gentoo
+# required by sys-libs/libxcrypt-4.4.27::gentoo
+# required by virtual/libcrypt-2::gentoo
+# required by net-misc/openssh-8.8_p1-r4::gentoo
+# required by virtual/ssh-0::gentoo[-minimal]
+# required by @system
+# required by @world (argument)
+>=sys-libs/gdbm-1.23 berkdb

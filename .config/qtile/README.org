@@ -1,0 +1,36 @@
+#+TITLE: My Qtile Config
+
+* Table of Contents :toc:
+- [[#about][About]]
+  - [[#what-is-qtile][What is Qtile?]]
+  - [[#why-qtile][Why Qtile?]]
+  - [[#is-qtile-slow-because-it-is-written-in-python][Is Qtile slow because it is written in Python?]]
+- [[#installation][Installation]]
+  - [[#pre-requisites][Pre-requisites]]
+
+* About
+[[./assets/thumbnails/Candice_rice_image.png]]
+** What is Qtile?
+- [[https://www.qtile.org][Qtile]] is a tiling window manager based on [[https://www.xmonad.org][Xmonad]] but written and can be configured in python. It is similar to [[https://www.awesomewm.org][AwesomeWM]] because of it's implementation in creating custom widgets. However, it is not as flexible and customizable as AwesomeWM.
+** Why Qtile?
+- As mentioned on [[#what-is-qtile][What is Qtile?]], it is similar on how it implements custom widgets. It also has a built-in panel making it fully customizable on what you can do on the panel. The built-in layouts are implementation of other tiling window manager's layout such as the monadTall and monadWide which comes from xmonad.
+** Is Qtile slow because it is written in Python?
+- The answer is simply, no. The window manager is not doing anything resource intensive or hard to calculate. It only stricts and places the window on their position with the border, margin, etc. Even if someday it becomes slow, the developers can implement [[https://www.cython.org][Cython]] which lets python to communicate directly with C.
+* Installation
+** Pre-requisites
+*** Arch Linux
+- *NOTE*: The installation script is not yet finished, so ignore this. \\
+- You need to install qtile in the standard arch repository. If you already installed my dotfiles, there is a script that allows you to install and setup everything. This configuration doesn't use the [[https://aur.archlinux.org/packages/qtile-git][qtile-git]] package from the arch user repository.
+
+  *WARNING:* My script requires *root* privileges from the user and will modify the /etc directory alongside other stuff. It is recommeded to only use this if you recently have reset your hard drive and have a fresh installation of Arch linux.
+
+- To install qtile, launch the terminal or TTY and type the following command. \\
+- =sudo pacman -S qtile= \\
+
+- If you don't have sudo install (most likely because you have a fresh installation of arch linux). You can type the following commands. \\
+
+- To enter the root user.\\
+- =su= \\
+- Type your root password and type the next command which would install qtile. \\
+- =pacman -S qtile= \\
+- After the installation, you can now logout in your current session, or if you are on TTY you can reboot your machine. \\

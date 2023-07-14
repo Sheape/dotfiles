@@ -1,0 +1,17 @@
+(include "bar/widgets.yuck")
+
+;;; Bar 
+(defwindow bar 
+           :monitor 0
+           :geometry (geometry :x "0px"
+                               :y "7px"
+                               :width "99%"
+                               :height "4%"
+                               :anchor "top center")
+           :stacking "fg"
+           :windowtype "dock"
+           :wm-ignore true
+           (bar)
+)
+
+

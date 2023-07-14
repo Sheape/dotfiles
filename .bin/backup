@@ -1,0 +1,35 @@
+#!/bin/sh
+# Backup with btrfs.
+
+BTRFS_TOP_LVL="/root/btrfs-top-lvl"
+SNAPSHOT_FORMAT="/snapshots/$(uname -n)-$(date +%d-%m-%Y)"
+
+# <source> <destination>
+config="$(cat << EOF
+${BTRFS_TOP_LVL}/root/gentoo		${SNAPSHOT_FORMAT}-root
+${BTRFS_TOP_LVL}/root/home		${SNAPSHOT_FORMAT}-home
+${BTRFS_TOP_LVL}/root/games 		${SNAPSHOT_FORMAT}-games
+${BTRFS_TOP_LVL}/root/media		${SNAPSHOT_FORMAT}-media
+EOF
+)"
+
+warning="$(cat << EOF
+WARNING: This script requires root privilages to run.
+EOF
+)"
+
+# Check if the user has sudo privilages or not
+# Warn the user for using this as root
+if [ "$(id -u)" = 0 ]; then 
+    mount -o subvol=/,defaults,noauto,noatime /dev/sda3 ${BTRFS_TOP_LVL}
+    #for i in ${config}
+    	#[ -d "${i}" ]
+    btrfs subvolume snapshot ${BTRFS_TOP_LVL}/root/gentoo		${SNAPSHOT_FORMAT}-root
+    btrfs subvolume snapshot ${BTRFS_TOP_LVL}/root/home		${SNAPSHOT_FORMAT}-home
+    btrfs subvolume snapshot ${BTRFS_TOP_LVL}/root/games 		${SNAPSHOT_FORMAT}-games
+    btrfs subvolume snapshot ${BTRFS_TOP_LVL}/root/media		${SNAPSHOT_FORMAT}-media
+    echo "Snapshot successfully taken... $(date +%d/%m/%Y)"
+else 
+    echo "$warning"
+fi
+

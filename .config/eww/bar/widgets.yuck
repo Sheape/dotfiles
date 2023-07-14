@@ -1,0 +1,31 @@
+;; Widgets for the bar 
+(defwidget bar []
+    (box 
+        :class "bar"
+        :spacing 8
+    (left)
+    (middle)
+    (right)
+    )
+)
+
+(defwidget left []
+    (box :orientation "h"
+    )
+)
+
+(defwidget middle []
+    (box :orientation "h"
+    )
+)
+
+(defwidget right []
+    ;; Time
+    (box :orientation "h"
+    (label
+        :class "time"
+        :text "${time}"
+)))
+
+;; Get the output of time every second
+(defpoll time :interval "1s" "date '+%a\ %I:%M\ %p'")

@@ -1,0 +1,16 @@
+{
+    "name": "Candace",
+    "colors": {
+    "--color-long-round": "#af93b9",
+    "--color-short-round": "#f2827f",
+    "--color-focus-round": "#ef7981",
+    "--color-background": "#122125",
+    "--color-background-light": "#122125",
+    "--color-background-lightest": "#ecb09a",
+    "--color-foreground": "#de9598",
+    "--color-foreground-darker": "#ef7981",
+    "--color-foreground-darkest": "#af93b9",
+    "--color-accent": "#ef7981"
+
+    }
+}

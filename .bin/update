@@ -1,0 +1,2 @@
+#!/bin/sh
+layman -s ALL && emerge --sync && eix-update && emerge -uDNa world

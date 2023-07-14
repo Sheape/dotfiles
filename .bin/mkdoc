@@ -1,0 +1,50 @@
+#!/bin/sh
+
+set -eu
+
+# Usage:
+# mkdoc <quarter> <week> <subject>
+
+quarter=$1
+week=$2
+subject=$3
+section="Hawking"
+
+# <Last name>, <First name> <Middile Initial>
+full_name="Pare, Paul Gerald D."
+last_name="Pare" 	## Adjust so that this is automatically detected.
+
+
+mkformat_eng() { cat << 'EOF'
+Choose between the options:
+[1] Performance
+[2] WOW
+EOF
+read type_act && [ "${type_act}" = "1" ] && type_act="Performance" || type_act="WOW";
+format="${section} - Q${quarter}W${week} - ${type_act} - ${full_name}"
+}
+
+case $1 in
+    1 ) output_dir="$HOME/docs/school/1st Quarter";;
+    2 ) output_dir="$HOME/docs/school/2nd Quarter";;
+    3 ) output_dir="$HOME/docs/school/3rd Quarter";;
+    4 ) output_dir="$HOME/docs/school/4th Quarter";;
+esac
+
+case $3 in
+    ap 	  ) vsubject="AP"; format="Q${quarter}W${week} - ${section} - ${full_name}";;
+    math  ) vsubject="Math"; format="Q${quarter}W${week} - ${section} - ${last_name}";;
+    eng   ) vsubject="English"; mkformat_eng;;
+    res   ) vsubject="Research"; format="LASQ${quarter}W${week} - ${section} - ${full_name}";;
+    esp   ) vsubject="Esp"; format="LASQ${quarter}W${week} - ${section} - ${full_name} - ValEd";;
+    fili  ) vsubject="Filipino"; format="Q${quarter}W${week} - ${section} - ${full_name} - Filipino";;
+    hg    ) vsubject="Homeroom"; format="${section} - Q${quarter}W${week}-$(expr ${week} + 1) - Module # - ${full_name}";;
+    elec  ) vsubject="Electronics"; format="Q${quarter}W${week} - ${section} - ${full_name}";;
+    mapeh ) vsubject="MAPEH"; format="Q${quarter}W${week}-$(expr ${week} + 1) - ${section} - ${full_name}";;
+    sci   ) vsubject="Science"; echo "Activity name:\n* Write A for normal activities" && read act; format="Q${quarter}W${week} - ${act} - ${last_name}";;
+esac
+
+touch "$HOME/docs/groff/${3}/q${quarter}w${week}-${3}.ms"
+
+#"${output_dir}/${vsubject}/${format}"
+#pdfroff -ms > 

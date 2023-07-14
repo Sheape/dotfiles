@@ -1,0 +1,26 @@
+# This file would ignore directories and files
+# that will be copied from and into the dotfiles
+# directory.
+#
+# Similar to .gitignore
+# 
+# This uses Perl Regex and not gitignore as it
+# is complicated to implement 
+
+\.git.*
+README.org
+__pycache__
+\.doom.d.*
+alacritty
+dunst
+htop
+pomotroid
+qtile
+rofi
+starship
+# Qutebrowser-specific
+QtProject
+qutebrowser/qsettings
+quickmarks
+
+packer_compiled.lua

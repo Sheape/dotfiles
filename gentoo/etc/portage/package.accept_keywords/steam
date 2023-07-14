@@ -1,0 +1,3 @@
+*/*::steam-overlay
+games-util/steam-launcher           ~amd64
+games-util/game-device-udev-rules   ~amd64

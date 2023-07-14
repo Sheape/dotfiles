@@ -1,0 +1,1 @@
+app-editors/neovim    LUA_SINGLE_TARGET="luajit"

@@ -1,0 +1,60 @@
+#!/bin/sh
+set -eu
+
+# NOTE: The directory must NOT have / at the end.
+DOTFILES_ROOT="$HOME/code/dotfiles"
+CONFIG="$HOME/.config/system/dotsignore"
+
+DISTRO_LIST=$(echo ${DISTRO_LIST} | tr ':' '|')
+
+
+# List out the root and remove the comments and empty lines 
+# in the config file
+read_config() {
+	grep -P '(?<=#|^$)' -v ${CONFIG}
+}
+
+get_ignored() {
+	find ${DOTFILES_ROOT} -type f | grep -v "$(read_config)" | sort -u
+}
+
+simplify_path() {
+	get_ignored | cut -c "$(($(echo ${DOTFILES_ROOT} | wc -m) + 1))"-
+}
+
+list_ignored() {
+	find ${DOTFILES_ROOT} -type f | grep "$(read_config)" | sort -u | cut -c "$(($(echo ${DOTFILES_ROOT} | wc -m) + 1))"-
+
+}
+
+select_root() {
+	simplify_path | grep -P "^${DISTRO}" | cut -c "$(($(echo ${DISTRO} | wc -m) + 1))"-
+}
+
+ignore_root() {
+	simplify_path | grep -Pv "^${DISTRO_LIST}"
+}
+
+deploy_conf() {
+	ignore_root | xargs -I{} rsync -auvP ${DOTFILES_ROOT}/{} ${HOME}/{}
+	select_root | xargs -I{} rsync -auvP ${DOTFILES_ROOT}/${DISTRO}/{} /{}
+}
+
+backup_conf() {
+	ignore_root | xargs -I{} rsync -auvP ${HOME}/{} ${DOTFILES_ROOT}/{}
+	select_root | xargs -I{} rsync -auvP /{} ${DOTFILES_ROOT}/${DISTRO}/{}
+}
+
+#simplify_path
+#get_ignored
+#select_root
+#ignore_root
+
+#deploy_conf
+#backup_conf
+
+case "$1" in
+	deploy) deploy_conf ;;
+	backup) backup_conf ;;
+	ignore) list_ignored ;;
+esac

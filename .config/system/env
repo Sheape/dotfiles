@@ -1,0 +1,24 @@
+#!/bin/sh
+
+# PATH
+export PATH="$PATH:$HOME/bin:$HOME/.bin:$HOME/.local/bin:/usr/local/bin:$HOME/.emacs.d/bin:$HOME/bin:$HOME/.local/cargo/bin"
+
+# Other Global Variables
+export CC="clang"
+export DISTRO="void"
+export DISTRO_LIST="void:gentoo"
+export EDITOR="nvim"
+export TERMINAL="alacritty"
+export BROWSER="qutebrowser" 
+export PAGER="less"		# Change this soon
+
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
+export GROFF_FONT_PATH="/usr/share/fonts/groff"
+
+# Rust-related if using rustup
+export RUSTUP_HOME="$HOME/.local/rustup"
+export CARGO_HOME="$HOME/.local/cargo"

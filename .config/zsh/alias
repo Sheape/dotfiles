@@ -1,0 +1,21 @@
+#!/bin/zsh
+# Aliases for Zsh
+
+alias ls="exa -lah"
+alias mv="mv -i"
+alias rm="rm -i"
+alias cp="cp -i"
+alias vi="nvim"
+alias grep="grep --color=auto"
+alias diff="diff --color=auto"
+
+## Warning: Watch out for version 600 on less
+alias less="less --lesskey-src $XDG_CONFIG_HOME/less/lesskey"
+alias dotfiles="git --git-dir=$HOME/dotfiles --work-tree=$HOME"
+alias sudoe="doasedit" 
+
+# Requires devour
+# https://github.com/salman-abedin/devour/
+alias mpv="devour mpv"
+alias sxiv="devour sxiv"
+alias zat="devour zathura"

@@ -1,0 +1,52 @@
+!! Opacity (0-1)
+*.alpha: 0.8
+
+!! Font and font size
+*.font: monospace:size=11
+
+/*!! gruvbox:
+*.color0: #1d2021 
+*.color1: #cc241d 
+*.color2: #98971a 
+*.color3: #d79921 
+*.color4: #458588 
+*.color5: #b16286 
+*.color6: #689d6a 
+*.color7: #a89984 
+*.color8: #928374 
+*.color9: #fb4934 
+*.color10: #b8bb26 
+*.color11: #fabd2f 
+*.color12: #83a598 
+*.color13: #d3869b 
+*.color14: #8ec07c 
+*.color15: #ebdbb2 
+*.color256: #1d2021 
+*.color257: #ebdbb2 
+*/
+
+!! aquarium:
+!! dark colors
+*.color0: #3b3b4d
+*.color1: #EBB9B9 
+*.color2: #B1DBA4 
+*.color3: #E6DFB8 
+*.color4: #B8DEEB 
+*.color5: #F6BBE7 
+*.color6: #CDDBF9 
+*.color7: #C6D0E9 
+
+!! 8 bright colors
+*.color8:  #3b3b4d
+*.color9:  #cc9b9d
+*.color10: #a3ccad
+*.color11: #d1ba97
+*.color12: #B8C9EA
+*.color13: #c497b3
+*.color14: #95C2D1
+*.color15: #63718b
+
+!! special colors
+*.color256: #20202A
+*.color257: #63718B
+

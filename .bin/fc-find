@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# This script is going to find the name of the font that you are looking for.
+
+echo "Find Font: " & read font
+
+fc-list | grep "$font" | awk -F ':' '{print $2 ":" $3}' | column -s ":" -t

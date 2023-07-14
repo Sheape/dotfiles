@@ -1,0 +1,7 @@
+#!/bin/sh
+
+TMP_SCREENSHOT="/tmp/screenshot.png"
+
+# Requires ImageMagick
+import $TMP_SCREENSHOT && xclip -sel clipboard -t image/png $TMP_SCREENSHOT
+

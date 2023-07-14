@@ -1,0 +1,67 @@
+* {
+    all: unset; // Global reset
+}
+
+.bar {
+    background-color: #1a1a24;
+    border-style: solid;
+    border-width: 0px;
+    border-color: #1f2833;
+    border-radius: 0px;
+}
+
+.notification {
+    all: unset;
+    background-color: red;
+    min-height: 750px;
+    min-width: 30px;
+    .content {
+        all: unset;
+        background-color: black;
+        min-height: 300px;
+        min-width: 0px;
+    }
+}
+
+.overview {
+    background-color: blue;
+}
+
+.options {
+    all: unset;
+    background-color: pink;
+    min-height: 150px;
+    min-width: 30px;
+}
+
+.main {
+    all: unset;
+    margin: 0px;
+    padding: 0px;
+}
+
+//!! aquarium:
+//!! dark colors
+//*.color0: #3b3b4d
+//*.color1: #EBB9B9
+//*.color2: #B1DBA4
+//*.color3: #E6DFB8
+//*.color4: #B8DEEB
+//*.color5: #F6BBE7
+//*.color6: #CDDBF9
+//*.color7: #C6D0E9
+//
+//!! 8 bright colors
+//*.color8:  #3b3b4d
+//*.color9:  #cc9b9d
+//*.color10: #a3ccad
+//*.color11: #d1ba97
+//*.color12: #B8C9EA
+//*.color13: #c497b3
+//*.color14: #95C2D1
+//*.color15: #63718b
+//
+//!! special colors
+//*.color256: #20202A
+//*.color257: #63718B
+//

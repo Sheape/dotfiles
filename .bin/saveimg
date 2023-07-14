@@ -1,0 +1,5 @@
+#!/bin/sh
+
+echo "Name of the file:"
+read filename
+xclip -selection clipboard -out > $filename.png

@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# This script is going to start all the processes and commands written in this file.
+# Check for .xinitrc on $XDG_CONFIG_HOME/X11/.xinitrc for other process that
+# automatically starts up.
+
+picom -b &
+dunst &
+redshift &
+
+#eww daemon &
+#emacs --daemon

@@ -1,0 +1,24 @@
+# /dev/sda1 LABEL=BOOT
+UUID=D5DE-3C60      				/boot     	vfat      	rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro	0 2
+
+# /dev/sda2 LABEL=SWAP
+UUID=3e55213f-d24b-4673-9ebf-acd12b4398a5	none      	swap      	defaults  	0 0
+
+# /dev/sda3 LABEL=ROOT
+UUID=863e4f06-b768-43d7-8347-8b0350a965e3	/         		btrfs     	rw,noatime,compress=lzo,ssd,discard=async,space_cache=v2,subvolid=268,subvol=/root/gentoo	0 0
+UUID=863e4f06-b768-43d7-8347-8b0350a965e3	/home     		btrfs     	rw,noatime,compress=lzo,ssd,discard=async,space_cache=v2,subvolid=269,subvol=/root/home		0 0
+UUID=863e4f06-b768-43d7-8347-8b0350a965e3	/home/sheape/games 	btrfs     	rw,noatime,compress=lzo,ssd,discard=async,space_cache=v2,subvolid=270,subvol=/root/games	0 0
+UUID=863e4f06-b768-43d7-8347-8b0350a965e3	/home/sheape/Media 	btrfs     	rw,noatime,compress=lzo,ssd,discard=async,space_cache=v2,subvolid=271,subvol=/root/media	0 0
+UUID=863e4f06-b768-43d7-8347-8b0350a965e3	/snapshots		btrfs     	rw,noatime,compress=lzo,ssd,discard=async,space_cache=v2,subvolid=273,subvol=/root/snapshots	0 0
+UUID=863e4f06-b768-43d7-8347-8b0350a965e3	/var/cache      	btrfs     	rw,noatime,compress=no,nodatacow,commit=0,ssd,discard=async,space_cache=v2,subvolid=280,subvol=/root/var	0 0
+
+## Btrfs top level - DO NOT MODIFY
+UUID=863e4f06-b768-43d7-8347-8b0350a965e3	/root/btrfs-top-lvl      	btrfs     	rw,defaults,noauto,noatime,subvol=/	0 0
+
+
+# Temporary Filesystems (Stored to RAM)
+tmpfs	/tmp			tmpfs	rw,nosuid,noatime,nodev,size=6G,mode=1777	0 0
+tmpfs	/var/tmp/portage	tmpfs	rw,nosuid,noatime,nodev,size=6G,mode=1777	0 0
+tmpfs	/run			tmpfs	rw,nosuid,noatime,nodev,size=6G,mode=1777	0 0
+tmpfs	/var/run		tmpfs	rw,nosuid,noatime,nodev,size=6G,mode=1777	0 0
+tmpfs	/var/lock 		tmpfs	rw,nosuid,noatime,nodev,size=6G,mode=1777	0 0

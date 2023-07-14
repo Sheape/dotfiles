@@ -1,0 +1,18 @@
+#!/bin/sh
+
+xmodmap -e "keycode 49 = BackSpace" # Sell towers
+xmodmap -e "keycode 66 = Escape" # Switching caps lock to escape
+
+xmodmap -e "keycode 10 = q" # Change keybindings of q, w, e, r to 1 to 4
+xmodmap -e "keycode 11 = w"
+xmodmap -e "keycode 12 = e"
+xmodmap -e "keycode 13 = r"
+
+xmodmap -e "keycode 24 = comma" # Upgrades are swapped into q, w, e
+xmodmap -e "keycode 25 = period"
+xmodmap -e "keycode 26 = slash"
+
+xmodmap -e "keycode 54 = c"
+
+xmodmap -e "keycode 40 = d"
+xmodmap -e "keycode 41 = f"

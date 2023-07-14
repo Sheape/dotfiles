@@ -1,0 +1,19 @@
+/*-*- mode: css; -*-*/
+
+* {
+    background-color:            #122125;
+    text-color:                  #bbc2cf;
+    font:                        "JetBrains Mono Nerd Font 10";
+    prompt-font:                 "JetBrains Mono Nerd Font 10";
+    prompt-background:           @background-color;
+    prompt-foreground:           #ef7981;
+    prompt-padding:              4px;
+    alternate-normal-background: transparent;
+    alternate-normal-foreground: @text-color;
+    selected-normal-background:  #ef7981;
+    selected-normal-foreground:  #ffffff;
+    spacing:                     3;
+    active-background:           #ef7981;
+    border: 			 0px;
+}
+

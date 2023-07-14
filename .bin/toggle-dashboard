@@ -1,0 +1,10 @@
+#!/bin/sh
+
+windows_state="$(eww windows | grep "\*dashboard")"
+
+if [ "$windows_state" == "*dashboard" ]
+then
+    eww close background dashboard
+else
+    eww open-many background dashboard
+fi

@@ -1,0 +1,13 @@
+SHELL=/bin/sh
+MAILTO=root
+PATH=/bin:/sbin:/usr/sbin:/usr/bin
+
+*/45 * * * * DISPLAY=:0.0 /usr/bin/notify-send -u normal -i $HOME/.config/dunst/icons/water.png "Health" "Drink some water."
+*/30 * * * * DISPLAY=:0.0 /usr/bin/notify-send -u normal -i $HOME/.config/dunst/icons/eye.png "Health" "Look something far away."
+*/5 * * * * DISPLAY=:0.0  /usr/bin/notify-send -u normal -i $HOME/.config/dunst/icons/posture.png "Health" "Check your posture."
+0 12 * * * DISPLAY=:0.0   /usr/bin/notify-send -u normal -i $HOME/.config/dunst/icons/lunch.png "Meal" "It's Lunch time!!"
+30 16 * * * DISPLAY=:0.0  /usr/bin/notify-send -u normal -i $HOME/.config/dunst/icons/brunch.png "Meal" "Eat some snacks!!"
+0 20 * * * DISPLAY=:0.0   /usr/bin/notify-send -u normal -i $HOME/.config/dunst/icons/dinner.png "Meal" "It's Dinner time!!"
+30 22 * * * DISPLAY=:0.0  /usr/bin/notify-send -u normal -i $HOME/.config/dunst/icons/sleep.png "Health" "Time for bedtime stories!!"
+*/10 18-23 * * * /usr/bin/pgrep redshift && true || /usr/bin/redshift &
+
