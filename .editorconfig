@@ -1,3 +1,14 @@
+[*]
+indent_style       = space
+indent_size        = 4
+
+[*.sh]
+shell_variant      = posix
+switch_case_indent = true
+space_redirects    = true
+keep_padding       = true
+function_next_line = true
+
 [Makefile]
 indent_style       = tab
 indent_size        = 4
