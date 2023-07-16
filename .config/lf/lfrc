@@ -17,4 +17,10 @@ cmd dots_add &{{
     lf -remote "send $id unselect"
 }}
 
+cmd dots_remove &{{
+    ~/.bin/dots remove home $fs | xargs -I % lf -remote "send $id echo %"
+    lf -remote "send $id unselect"
+}}
+
 map <c-a> dots_add
+map <c-d> dots_remove
