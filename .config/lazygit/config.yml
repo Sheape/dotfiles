@@ -17,3 +17,15 @@ theme:
     - "#89b4fa" # Blue
   unstagedChangesColor:
     - red       # Red
+keybinding:
+  universal:
+    prevItem-alt: 'e'
+    nextItem-alt: 'n'
+    scrollLeft: 'Y'
+    scrollRight: 'O'
+    prevBlock-alt: 'y'
+    nextBlock-alt: 'o'
+    nextMatch: 'k'
+    prevMatch: 'K'
+    edit: 'E'
+    openFile: 'l'
