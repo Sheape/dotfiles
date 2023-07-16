@@ -1,0 +1,39 @@
+#!/bin/sh
+
+# Deno
+export DENO_INSTALL="$HOME/.local/src/.deno/"
+
+# PATH
+export PATH="$PATH:$HOME/bin:$HOME/.bin:$HOME/.local/bin:/usr/local/bin:$HOME/.emacs.d/bin:$HOME/bin:$HOME/.local/cargo/bin:/usr/lib/ruby/gems/3.1.0/bin:$DENO_INSTALL/bin"
+
+# Other Global Variables
+export CC="clang" \
+       DISTRO="void" \
+       DISTRO_LIST="void:gentoo" \
+       EDITOR="nvim" \
+       TERMINAL="st" \
+       BROWSER="qutebrowser"  \
+       PAGER="less"		# Change this soon
+
+export XDG_CACHE_HOME="$HOME/.cache" \
+       XDG_CONFIG_HOME="$HOME/.config" \
+       XDG_DATA_HOME="$HOME/.local/share"
+       XDG_RUNTIME_DIR="/run/user/1000" \
+       ZDOTDIR="$XDG_CONFIG_HOME/zsh" \
+       DIRSTACKFILE="$XDG_CACHE_HOME/zsh/dirs" \
+       STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml" \
+       GROFF_FONT_PATH="/usr/share/fonts/groff"
+
+# Vivid for cool colorschemes using exa
+export LS_COLORS="$(vivid generate catppuccin-mocha)" \
+       BAT_THEME="Catppuccin-mocha"
+
+# Rust-related if using rustup
+export RUSTUP_HOME="$HOME/.local/rustup" \
+       CARGO_HOME="$HOME/.local/cargo"
+
+# Xdeb - converts debian packages to void linux packages
+export XDEB_PKGROOT="$HOME/.local/src/xdeb/" \
+       XDEB_OPT_DEPS=true \
+       XDEB_OPT_WARN_CONFLICT=true \
+       XDEB_OPT_FIX_CONFLICT=true

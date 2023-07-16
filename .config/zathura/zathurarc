@@ -1,0 +1,44 @@
+# General Settings
+include catppuccin-mocha
+
+set adjust-open "fill"
+set selection-clipboard "clipboard"
+set font "monospace 11"
+
+# Stop at page boundaries
+set scroll-page-aware "true"
+set scroll-full-overlap 0.01
+set scroll-step 100
+
+set render-loading "false"
+set scroll-step "50"
+
+# Zoom settings
+set zoom-min 10
+# Removes the bar in the bottom making it
+# more minimal and clean looking
+set guioptions ""
+
+# Workman bindings
+unmap n
+unmap e
+unmap s
+unmap t
+unmap d
+unmap u
+unmap r
+unmap R
+unmap <C-f>
+unmap <C-d>
+
+map n scroll down
+map e scroll up
+map <C-f> toggle_fullscreen
+map [fullscreen] <C-f> toggle_fullscreen
+map s toggle_statusbar
+map u scroll half-up
+map d scroll half-down
+map R rotate rotate-cw
+map r reload
+map t recolor
+map <C-d> toggle_page_mode

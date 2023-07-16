@@ -1,0 +1,5 @@
+
+[Default Applications]
+image/png=nsxiv.desktop
+application/pdf=org.pwmt.zathura.desktop
+video/mp4=mpv.desktop

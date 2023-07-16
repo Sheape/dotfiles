@@ -1,0 +1,20 @@
+#!/bin/zsh
+
+#function checkvar() {
+#    [ -z "$1" ] && export "$1"="$2"
+#}
+
+# History cache
+[ -z "$XDG_CACHE_HOME" ] && export XDG_CACHE_HOME="$HOME/.cache"
+[ -f "$XDG_CACHE_HOME/zsh/history" ] || mkdir -p "$XDG_CACHE_HOME/zsh" \
+&& touch "$XDG_CACHE_HOME/zsh/history"
+
+function lfcd() {
+    tmp="$(mktemp)"
+    lf -last-dir-path="$tmp" "$@"
+    if [ -f "$tmp" ]; then
+        dir="$(cat "$tmp")"
+        rm -f "$tmp"
+        [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
+    fi
+}

@@ -1,0 +1,58 @@
+alt + Return
+    $TERMINAL
+
+alt + r
+    dmenu_run
+
+alt + s
+    screenshot
+
+# Kills the current focused window
+alt + q
+    bspc node -c
+
+# Quit/Restart bspwm
+alt + shift + {q,r}
+    bspc {quit,wm -r}
+
+# Requires qutebrowser-profile
+# https://github.com/jtyers/qutebrowser-profile
+alt + b
+    qutebrowser-profile
+
+# Toggle bar
+alt + t
+    eww-bar
+
+# focus/move the node in the given direction
+# LAYOUT: workman
+alt + {_,shift + }{y,n,e,o}
+	bspc node -{f,s} {west,south,north,east}
+
+# expand a window by moving one of its side outward
+# LAYOUT: workman
+ctrl + alt + {y,n,e,o}
+    bspc node -z {left -20 0 || bspc node -z right -20 0, \
+                bottom 0 20 || bspc node -z top 0 20,\
+                top 0 -20 || bspc node -z bottom 0 -20,\
+                right 20 0 || bspc node -z left 20 0}
+
+# Change layout through list
+# Requires dmenu
+alt + l
+    bspwm-layout
+
+# Switch to a workspace/move focused client on a workspace
+alt + {_, shift +}{1-9}
+    bspc {desktop -f, node -d} focused:'^{1-9}'
+
+# Toggle fullscreen of the focused node
+alt + f
+    bspc node -t "~"fullscreen
+
+#F1
+#    mail-checker read
+#F2
+#    mail-checker label
+#F3
+#    mail-checker repos

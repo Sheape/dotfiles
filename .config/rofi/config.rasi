@@ -1,0 +1,7 @@
+configuration {
+    emoji {
+            display-name: "☺ ";
+    }
+}
+
+@theme "~/.config/rofi/themes/search.rasi"

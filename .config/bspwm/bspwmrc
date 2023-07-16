@@ -1,0 +1,39 @@
+#!/bin/sh
+
+# Some variables.
+# Set the path of your wallpaper here.
+WALLPAPER="$HOME/media/pics/wallpapers/cities/nordified-city-darkened.jpg"
+# Workspace number/chars seperated with space.
+WORKSPACES="1 2 3 4 5 6 7 8 9"
+DEFAULT_LAYOUT="tall" # For available layouts, run `bsp-layout layouts`
+
+
+# Autostart
+pidof -x "sxhkd" || sxhkd &
+xwallpaper --center "${WALLPAPER}" &
+picom --experimental-backends -b &
+pidof -x "redshift" || redshift &
+pidof -x "bspswallow" || bspswallow &
+
+alias config='bspc config'
+
+bspc monitor -d ${WORKSPACES}
+# Requires bsp-layout
+# Sets the default layout.
+# echo "${WORKSPACES}" | xargs -d' ' -I{} bsp-layout set "${DEFAULT_LAYOUT}" {}
+# for workspace in ${WORKSPACES}; do
+#     bsp-layout set "${DEFAULT_LAYOUT}" "${workspace} --"
+# done
+
+# Config
+config border_width 2
+config window_gap 10
+config split ratio 0.50
+config bottom_padding
+
+config borderless_monocle true
+config gapless_monocle true
+config paddingless_monocle true
+config single_monocle true
+
+config focus_follows_pointer true

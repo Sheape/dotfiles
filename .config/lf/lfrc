@@ -1,0 +1,20 @@
+#### Bindings ####
+# Workman
+map n down
+map e up
+map y updir
+map o open
+map j copy
+map k search-next
+map K search-prev
+
+set previewer ~/.config/lf/preview
+
+set cursorpreviewfmt "\033[7;90m"
+
+cmd dots_add &{{
+    ~/.bin/dots add home $fs | xargs -I % lf -remote "send $id echo %"
+    lf -remote "send $id unselect"
+}}
+
+map <c-a> dots_add

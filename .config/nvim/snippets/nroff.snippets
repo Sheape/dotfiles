@@ -1,0 +1,47 @@
+# For neorg: https://github.com/nvim-neorg/neorg
+snippet fB
+	.ft B
+	${1}
+	.ft
+snippet fI
+	.ft I
+	${1}
+	.ft
+snippet SH
+	.ST
+	${1}
+	.RT
+snippet incl
+	.so /home/sheape/.config/neatroff/macros/acsci/main.tmac
+	.TI ${1}
+
+snippet img
+	.EPS "${1}/${2}" C ${3:6}i
+snippet tbl
+	.tblbeg ${1}m ${2}m
+	.tblrow
+	.tblcol 1
+
+	.tblcol 2
+
+	.tblrow
+	.tblcol 1
+
+	.tblcol 2
+
+	.tblend
+snippet wow
+	.WINIT 18
+	.WSUB "${1}" "${2}"
+	.tblrec 2.025i 4.475i
+	.WMISC "ETYMOLOGY"
+	${3}
+	.WMISC "MEANING/DEFINITION"
+	${4}
+	.WMISC "SYNONYMS"
+	${5}
+	.WMISC "ANTONYMS"
+	${6}
+	.WMISC "SENTENCE"
+	${7}
+	.tblend

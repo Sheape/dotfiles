@@ -1,0 +1,19 @@
+.fp - R times-newer-roman
+.fp - B times-newer-roman-b
+.fp - I times-newer-roman-i
+.fp - BI times-newer-roman-bi
+
+.ps 12
+.vs 28
+
+.nr VS 24
+
+.nr NL 0 1
+.de OL
+.RT
+\\n+[NL]. \\$1
+..
+\"To reset the number being used in OL macro.
+.de RTN
+.nr NL 0 1
+..

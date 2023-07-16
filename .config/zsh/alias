@@ -1,0 +1,53 @@
+#!/bin/zsh
+# Aliases for Zsh
+
+# Frontend to neovim: https://github.com/neovide/neovide
+alias \
+    ls="exa -lah" \
+    mv="mv -i" \
+    rm="rm -i" \
+    cp="cp -i" \
+    v="neovide --multigrid --nofork --novsync" \
+    vi="nvim" \
+    lg="lazygit" \
+    lf="lfcd --command 'set hidden'" \
+    grep="grep --color=auto" \
+    diff="diff --color=auto" \
+    o="xdg-open"
+
+## Warning: Watch out for version 600 on less
+alias \
+    less="less --lesskey-src $XDG_CONFIG_HOME/less/lesskey"
+    # dotfiles="git --git-dir=$HOME/dotfiles --work-tree=$HOME"
+
+# Requires doasedit from your favorite implementation.
+# https://github.com/stefanwimmer128/doasedit
+alias se="doasedit"
+
+# Shorter name for my scripts
+# Requires colorpicker: https://github.com/Jack12816/colorpicker
+# Requires qutebrowser-profile: https://github.com/jtyers/qutebrowser-profile
+alias sl="suckless" \
+    q="qutebrowser-profile" \
+    cv="img2eps" \
+    color="colorpicker --short --one-shot | xclip -sel clipboard -t UTF8_STRING"
+
+# Requires devour for window mnaagers other than dwm
+# https://github.com/salman-abedin/devour/
+#alias mpv="devour mpv"
+#alias sxiv="devour sxiv"
+#alias zat="devour zathura"
+
+# Git aliases
+alias \
+    g="git" \
+    ga="git add --all" \
+    gap="git apply" \
+    gs="git status" \
+    gb="git branch" \
+    gc="git checkout" \
+    gcb="git checkout -b" \
+    gcl="git clone" \
+    gcm="git commit -v" \
+    gm="git merge" \
+    gmt="git mergetool --tool=nvimdiff" \

@@ -1,0 +1,8 @@
+@import './colorscheme';
+
+@mixin widget-bg($margin) {
+    all: unset;
+    background-color: $colorscheme-base;
+    border-radius: 10px;
+    margin: $margin;
+}

@@ -1,0 +1,81 @@
+.so /home/sheape/.config/neatroff/macros/acsci/config.tmac
+.
+.\" Font stuff
+.fp - R quicksand
+.fp - B quicksand-b
+.ps 11
+.
+.EPS "/home/sheape/.config/neatroff/assets/header.eps" C 7i
+.de QW
+.ft B
+QUARTER \\$1 WEEK \\$2
+.ft
+..
+.
+.de DAY
+.ft B
+.ie ((\\n[.$]==1)) \
+.sy echo `date --date="$(date +%m)/\\$1/$(date +%Y)" +"%A (%B \\$1, %Y)" ` > /tmp/current_day
+.el \
+.sy echo `date --date="\\$2/\\$1/$(date +%Y)" +"%A (%B \\$1, %Y)" ` > /tmp/current_day
+.
+.so /tmp/current_day
+.sy rm /tmp/current_day
+.ft
+..
+.de SM
+\\$3 \s-2 \\$1 \s+2 \\$2
+..
+.
+.de NAME
+.ft B
+Name:
+.ft
+\*[Au]
+.br
+.ft B
+Grade and Section:
+.ft
+\n[GL] - \*[SC]
+..
+
+.de WINIT
+.tblbeg 6.5i
+.tblrow
+.tblcol 1
+.sp
+.ce 2
+.DAY \\$1 \\$2
+..
+
+.de WSUB
+.tblrec 2.025i 1.225i 1.225i 2.025i
+.tblrow
+.tblcol 1
+.sp
+.ft B
+WORD:
+.ft
+.tblcol 2
+.sp
+\\$1
+.tblcol 3
+.sp
+.ft B
+SUBJECT:
+.ft
+.tblcol 4
+.sp
+\\$2
+..
+
+.de WMISC
+.tblrow
+.tblcol 1
+.sp
+.ft B
+\\$1:
+.ft
+.tblcol 2
+.sp
+..
