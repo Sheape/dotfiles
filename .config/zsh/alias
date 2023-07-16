@@ -7,6 +7,8 @@ alias \
     mv="mv -i" \
     rm="rm -i" \
     cp="cp -i" \
+    cf="config" \
+    cl="clear" \
     v="neovide --multigrid --nofork --novsync" \
     vi="nvim" \
     lg="lazygit" \

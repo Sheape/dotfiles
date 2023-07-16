@@ -1,6 +1,5 @@
 .config/btop/btop.conf
 .config/screenkey.json
-.config/lf/.editorconfig
 .config/lf/lfrc
 .config/lf/preview
 .config/foot/foot.ini
@@ -120,3 +119,4 @@
 .config/bspwm/terminals
 .config/rofi/themes/colors.rasi
 .config/rofi/themes/search.rasi
+.config/hypr/hyprpaper.conf

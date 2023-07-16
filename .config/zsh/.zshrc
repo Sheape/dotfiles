@@ -10,7 +10,7 @@ source $ZDOTDIR/functions
 source $ZDOTDIR/alias
 if [[ -n "$_START_LFCD" ]]; then
     unset _START_LFCD
-    lfcd
+    lfcd --command 'set hidden'
 fi
 
 # Colors and prompt
