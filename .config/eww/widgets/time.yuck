@@ -1,14 +1,26 @@
 (defpoll h :interval "1s" `date +\"%I\"`)
 (defpoll m :interval "1s" `date +\"%M\"`)
 (defpoll s :interval "1s" `date +\"%S\"`)
+(defpoll pm :interval "1s" `date +\"%p\"`)
+(defvar time_hovered false)
 
 (defwidget time []
-    (eventbox 
-    (box :class "module last-widget" :space-evenly "false" :orientation "h" :spacing "3" 
-        (label :text "󱑂 " :class "time")
-        (label :text h :class "time" )
-        (label :text ":" :class "time" )
-        (label :text m :class "time")
-        (label :text ":" :class "time" )
-        (label :text s :class "time")
-)))
+  (eventbox :onhover "${EWW_CMD} update time_hovered=true"
+    :onhoverlost "${EWW_CMD} update time_hovered=false"
+   (box :class "module" :space-evenly "false" :orientation "h" :spacing "3" :halign "end"
+
+   (label :text "󰥔 " :class "time clock-icon")
+   (label :text h :class "time")
+   (label :text ":" :class "time")
+   (label :text m :class "time")
+   (revealer :transition "slideright"
+     :reveal time_hovered
+     :duration "500ms"
+     (box :class "reveal-only" :halign "start"
+       (label :text ":" :class "time")
+       (label :text s :class "time")
+      )
+    )
+   (label :text " " :class "time")
+   (label :text pm :class "time"))
+))

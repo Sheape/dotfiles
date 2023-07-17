@@ -1,6 +1,31 @@
-(defpoll volume :interval "5s" `pamixer --get-volume` )
+(defpoll current-volume :interval "2s" "pulsemixer --get-volume | awk '{print $1}'" )
+(defvar volume false)
+(defvar volume_value true)
+
+;; (defwidget audio []
+;;   (box :class "module" :space-evenly "true" :orientation "h" :spacing "3"
+;;     (button :onclick "pavucontrol"
+;;       (label :text "󰓃 ${volume}%"))))
 
 (defwidget audio []
-    (box :class "module" :space-evenly "true" :orientation "h" :spacing "3" 
-        (button :onclick "pavucontrol"
-            (label :text "󰓃 ${volume}%"))))
+	(eventbox   :onhover "${EWW_CMD} update volume=true && ${EWW_CMD} update volume_value=false"
+			    :onhoverlost "${EWW_CMD} update volume=false && ${EWW_CMD} update volume_value=true"
+	(box        :class "module"
+                :orientation "h"
+			    :space-evenly "false"
+			    :spacing "2"
+    (button     :onclick "scripts/popup audio"   :class "volume-btn"
+      (label    :text ""                        :class "volume-icon"))
+      (label    :text "${current-volume}%"       :class "volume-value"  :visible volume_value)
+	(revealer   :transition "slideright"
+			    :reveal volume
+			    :duration "550ms"
+	(scale      :class "volbar"
+			    :value current-volume
+			    :orientation "h"
+			    :flipped false
+			    :tooltip "Volume: ${current-volume}%"
+			    :max 101
+			    :min 0
+			    :onchange "pulsemixer --set-volume {}" ))
+      )))

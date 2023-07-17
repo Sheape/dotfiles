@@ -3,14 +3,14 @@
 (include "widgets/powermenu.yuck")
 
 (defwindow bar
-	   :monitor 0
-	   :geometry (geometry :x "0px"
-        	               :y "8px"
-                	       :width "99%"
-                               :height "40px"
-	                       :anchor "top center")
-	    :stacking "fg"
-        :exclusive true
+    :monitor 0
+    :geometry (geometry :x "0px"
+                        :y "8px"
+                        :width "99%"
+                        :height "40px"
+                        :anchor "top center")
+    :stacking "fg"
+    :exclusive true
     (bar))
 
 (defwindow desktop

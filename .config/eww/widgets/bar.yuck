@@ -6,6 +6,7 @@
 (include "widgets/cpu_usage.yuck")
 (include "widgets/ram_usage.yuck")
 (include "widgets/audio.yuck")
+(include "widgets/window_title.yuck")
 
 (defwidget bar []
     (centerbox :orientation "h" :class "bar"
@@ -13,8 +14,9 @@
             (updates)
             (workspaces))
         (box :class "center" :halign "start" :hexpand false :vexpand false
-            (ram_usage)
-            )
+            (window_title))
+
         (box :class "right" :halign "end" :hexpand false :vexpand false
-            (date)
-            (time))))
+            (audio)
+            (time)
+            (date))))

@@ -1,139 +1,87 @@
+@import "./_mixins.scss";
+
 * {
-    margin: 0;
-    padding: 0;
-    font-family: "JetBrains Mono Nerd Font";
-    font-weight: 700;
-    font-size: 14px;
-    color: #e0def4;
+  margin: 0;
+  padding: 0;
+  font-family: "JetBrains Mono Nerd Font";
+  font-weight: 700;
+  font-size: 14px;
+  color: $colors_text;
 }
 
 /* --------------------------------------- Common Styles -------------------------------------- */
 
 /* Style for module */
 .module {
-    background: #232136; 
-    border-radius: 10px; 
-    border: 2px solid #eb6f92;
-    margin-right: 8px;
-    padding: 0 15px;
-}
-
-/* Remove the `margin-right` for the last module */
-.last-widget {
-    margin-right: 0;
+  @include widget();
 }
 
 /* Make the bar transparent */
 .bar {
-    background: transparent;
-}
-
-.date {
-    color: #eb6f92;
-}
-
-.updates {
-    color: #f6c177;
-}
-
-.workspace_btn {
-    background: transparent;
-    padding: 0 8px 0px 14px;
-    margin-top: 3px;
-    margin-bottom: 3px;
-    outline: 0px ;
-}
-
-.workspace_btn:hover {
-    box-shadow: inherit;
-    text-shadow: inherit;
-}
-
-.workspace_label {
-   color: #eb6f92; 
-   font-size: 16px;
-}
-
-.cpu {
-    color: #ebbcba;
-}
-
-.ram {
-    color: #31748f;
+  background: transparent;
 }
 
 .time {
-    color: #c4a7e7;
+  color: $colors_mauve;
 }
 
-.net_status {
-    color: #9ccfd8;
+.clock-icon {
+  font-size: 16px;
 }
 
-/* -------------------------------------- Desktop Widget -------------------------------------- */
-
-.desktop {
-    background-color: transparent;
+.date {
+  color: $colors_lavender;
 }
 
-.desktop_clock {
-    padding: 40px 35px;
+button {
+  all: unset;
+  background: $colors_base;
 }
 
-.desktop_time {
-    font-size: 96px;
+.workspace_btn {
+  all: unset;
+  background: $colors_base;
+  padding: 1px;
 }
 
-.desktop_time_h, .desktop_time_m {
-    color: #eb6f92;
+.workspace_label {
+  color: $colors_surface2;
 }
 
-.desktop_time_colon {
-    color: #e0def4;
+.window_title_label {
+  color: $colors_subtext0;
 }
 
-.desktop_time_p {
-    color: #eb6f92;
+.reveal-only {
+  all: unset;
+  margin-left: -4px;
 }
 
-.desktop_date_date {
-    margin-left: 10px;
+.volume-icon {
+  font-size: 18px;
+  color: $colors_teal;
 }
 
-.desktop_date {
-    font-size: 32px;
-    color: #eb6f92;
+.volume-value {
+  color: $colors_teal;
+  margin-left: 5px;
 }
 
-/* -------------------------------------Powermenu Widget---------------------------------------*/
-.powermenu {
-    border-radius: 10px;
-    border: 2px solid #eb6f92;
+scale trough {
+  all: unset;
+  background-color: $colors_base;
+  border-radius: 5px;
+  min-width: 75px;
+  min-height: 10px;
+  margin: .3rem 0 .3rem 2px;
 }
 
-.powermenu_button {
-    background: transparent;
-    padding: 20px;
+.volbar trough highlight {
+  background-color: $colors_teal;
+  border-color: $colors_base;
+  border-radius: 5px;
 }
 
-.powermenu_button:nth-child(1) {
-    border-radius: 10px 10px 0 0;
-}
-
-.powermenu_button:nth-child(2) {
-    border-radius: 0 0 10px 10px;
-}
-
-.powermenu_button:hover {
-    background: #2a283e;
-}
-
-.powermenu_label_restart {
-    color: #c4a7e7;
-    font-size: 32px;
-}
-
-.powermenu_label_poweroff {
-    color: #eb6f92;
-    font-size: 32px;
+slider {
+  all: unset;
 }
