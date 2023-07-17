@@ -39,6 +39,9 @@ keymap("", "M", "R", opts)
 keymap("", "K", "N", opts)
 keymap("", "C", "M", opts)
 
+keymap("", "<C-u>", "<C-u>zz", opts)
+keymap("", "<C-d>", "<C-d>zz", opts)
+
 -- Copy and pasting buffers
 keymap("", "<leader>j", '"+y', opts)
 keymap("", "<leader>p", '"+P', opts)
@@ -175,7 +178,7 @@ function workman.nvim_tree_on_attach(bufnr)
 
 	-- custom mappings
 	keymap("n", "<Tab>", api.node.open.preview,         opts("Open Preview"))
-	keymap("n", "<CR>",  open_and_focus,                opts("Open: In Place"))
+	keymap("n", "<CR>",  open_and_focus,                opts("Open: on an existing buffer"))
 	keymap("n", "l",     api.node.open.edit,            opts("Open"))
 	keymap("n", "`",     api.tree.toggle_hidden_filter, opts("Toggle Dotfiles"))
 	keymap("n", "c",     api.fs.create,                 opts("Create"))

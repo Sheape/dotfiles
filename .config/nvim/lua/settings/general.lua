@@ -63,9 +63,11 @@ vim.api.nvim_command "colorscheme catppuccin-mocha"
 vim.o.guifont = "JetBrainsMono Nerd Font:h14:w14"
 vim.g.neovide_transparency = 0.8
 vim.g.neovide_cursor_vfx_mode = "railgun"
+-- vim.g.neovide_refresh_rate = 100 -- Very important for wayland, otherwise it would lag
 vim.g.neovide_cursor_animation_length = 0.07
 vim.g.neovide_floating_blur_amount_x = 0.0
 vim.g.neovide_floating_blur_amount_y = 0.0
+
 
 -- For python plugins (idk why anyone would do this)
 -- vim.g.python_host_prog = '/usr/bin/python2'
@@ -78,20 +80,37 @@ vim.g.neovide_floating_blur_amount_y = 0.0
 -- Adjusts the color of the comments to have a little more contrast.
 -- Also removes background for opacity and blur to kick in.
 -- All highlights must be defined here.
-vim.cmd([[
-hi Normal guibg=#20202a ctermbg=none
-hi LineNr guibg=none ctermbg=none
-hi Folded guibg=none ctermbg=none
-hi NonText guibg=none ctermbg=none
-hi SpecialKey guibg=none ctermbg=none
-hi VertSplit guibg=none ctermbg=none
-hi SignColumn guibg=none ctermbg=none
-hi EndOfBuffer guibg=none ctermbg=none
-hi Comment guifg=#4C5369
-hi DiagnosticError ctermbg=NONE ctermfg=NONE gui=NONE guibg=NONE guifg=#EBB9B9
-hi DiagnosticWarn ctermbg=NONE ctermfg=NONE guibg=NONE guifg=#E6DFB8
-hi DiagnosticInfo ctermbg=NONE ctermfg=NONE guibg=NONE guifg=#B8DEEB
-hi DiagnosticHint ctermbg=NONE ctermfg=NONE guibg=NONE guifg=#B1DBA4
-hi IndentBlanklineIndent1 guifg=#313449
-]]
-)
+
+-- hi Normal guibg=#20202a ctermbg=none
+-- vim.cmd([[
+-- hi LineNr guibg=none ctermbg=none
+-- hi Folded guibg=none ctermbg=none
+-- hi NonText guibg=none ctermbg=none
+-- hi SpecialKey guibg=none ctermbg=none
+-- hi VertSplit guibg=none ctermbg=none
+-- hi SignColumn guibg=none ctermbg=none
+-- hi EndOfBuffer guibg=none ctermbg=none
+-- hi Comment guifg=#4C5369
+-- hi DiagnosticError ctermbg=NONE ctermfg=NONE gui=NONE guibg=NONE guifg=#EBB9B9
+-- hi DiagnosticWarn ctermbg=NONE ctermfg=NONE guibg=NONE guifg=#E6DFB8
+-- hi DiagnosticInfo ctermbg=NONE ctermfg=NONE guibg=NONE guifg=#B8DEEB
+-- hi DiagnosticHint ctermbg=NONE ctermfg=NONE guibg=NONE guifg=#B1DBA4
+-- hi IndentBlanklineIndent1 guifg=#313449
+-- ]]
+-- )
+
+-- Experimental, nvim_set_hl completely overrides the existing highlights
+-- vim.api.nvim_set_hl(0, "Normal",                 { background="#20202a", ctermbg="none" })
+-- vim.api.nvim_set_hl(0, "LineNr",                 { background="none",    ctermbg="none" })
+-- vim.api.nvim_set_hl(0, "Folded",                 { background="none",    ctermbg="none" })
+-- vim.api.nvim_set_hl(0, "NonText",                { background="none",    ctermbg="none" })
+-- vim.api.nvim_set_hl(0, "SpecialKey",             { background="none",    ctermbg="none" })
+-- vim.api.nvim_set_hl(0, "VertSplit",              { background="none",    ctermbg="none", foreground="none" })
+-- vim.api.nvim_set_hl(0, "SignColumn",             { background="none",    ctermbg="none" })
+-- vim.api.nvim_set_hl(0, "EndOfBuffer",            { background="none",    ctermbg="none" })
+-- vim.api.nvim_set_hl(0, "Comment",                { foreground="#4C5369" })
+-- vim.api.nvim_set_hl(0, "DiagnosticError",        { ctermbg="NONE",  ctermfg="NONE", background="NONE", foreground="#EBB9B9" })
+-- vim.api.nvim_set_hl(0, "DiagnosticWarn",         { ctermbg="NONE",  ctermfg="NONE", background="NONE", foreground="#E6DFB8" })
+-- vim.api.nvim_set_hl(0, "DiagnosticInfo",         { ctermbg="NONE",  ctermfg="NONE", background="NONE", foreground="#B8DEEB" })
+-- vim.api.nvim_set_hl(0, "DiagnosticHint",         { ctermbg="NONE",  ctermfg="NONE", background="NONE", foreground="#B1DBA4" })
+-- vim.api.nvim_set_hl(0, "IndentBlanklineIndent1", { foreground="#313449" })

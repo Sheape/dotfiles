@@ -25,6 +25,7 @@ return require("packer").startup(function()
 	use("theHamsta/nvim-dap-virtual-text")
 	use("nvimdev/lspsaga.nvim")
 	use({ "j-hui/fidget.nvim", tag = "legacy" })
+	use("elkowar/yuck.vim")
 
 	---* UI Stuff *---
 	use("nvim-tree/nvim-web-devicons")

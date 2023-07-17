@@ -224,5 +224,6 @@ local lualine_config = {
 	inactive_winbar = {},
 }
 
+nvim_tree.setup(nvim_tree_config)
 lualine.setup(lualine_config)
 indent.setup(indent_config)

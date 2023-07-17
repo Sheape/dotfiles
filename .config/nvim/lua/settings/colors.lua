@@ -10,10 +10,17 @@ local catppuccin_config = {
   flavour = 'mocha',
   transparent_background = true,
   dim_inactive = {
-    enabled = true,
+    enabled = false,
     shade = 'dark',
     percentage = 0.20
   },
+  custom_highlights = function(colors)
+    return {
+      Normal = { bg = colors.base, ctermbg = 'none' },
+      IndentBlanklineIndent1 = { fg = colors.surface0 }
+      -- Comment = { fg = colors. }
+    }
+  end,
   integrations = {
     cmp = true,
     gitsigns = true,
