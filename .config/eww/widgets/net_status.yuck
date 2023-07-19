@@ -1,5 +1,8 @@
-(defpoll net_status :interval "60s" `bash /home/mik3y/.config/eww/scripts/network.sh`)
+(defpoll net_status :interval "3s" :initial "not_connected" "sh ~/.config/eww/scripts/network.sh check_state")
+(defpoll net_interface :interval "3s" :initial "not_connected" "sh ~/.config/eww/scripts/network.sh get_interface")
 
 (defwidget net_status []
-    (box :class "module" :hexpand false :vexpand false :space-evenly "true" :orientation "h"
-        (label :text {net_status ? "󰖩  Online" : "󰖪  Offline"} :class "net_status" )))
+  (box :class "utils_submodule"
+    (label :text '${net_status == "up eth" ? "󰈀 ${round(EWW_NET[net_interface].NET_DOWN / 1000,2)} mbps" : net_status == "up wifi" ? "󰖩 ${EWW_NET[net_interface].NET_DOWN} mbps" : "󰖪 Offline"}' :class "net_status")
+    )
+  )

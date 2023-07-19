@@ -69,11 +69,11 @@ button {
 
 scale trough {
   all: unset;
-  background-color: $colors_base;
+  background-color: $colors_surface0;
   border-radius: 5px;
   min-width: 75px;
   min-height: 10px;
-  margin: .3rem 0 .3rem 2px;
+  margin: 0px;
 }
 
 .volbar trough highlight {
@@ -84,4 +84,26 @@ scale trough {
 
 slider {
   all: unset;
+}
+
+.workspace_btn_active {
+  color: $colors_lavender;
+}
+
+.time_container {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.right {
+  all: unset;
+}
+
+.net_status {
+  color: $colors_blue;
+}
+
+.utils_submodule {
+  margin-left: 4px;
+  margin-right: 4px;
 }

@@ -1,3 +1,3 @@
-#!/bin/bash
+#!/bin/sh
 
-free -m | awk 'NR==2{printf "%.2f%%\n", $3*100/$2 }'
+free -m | awk 'NR==2{rounded = sprintf("%.2f",$3/1000); print rounded}'

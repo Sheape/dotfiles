@@ -1,11 +1,11 @@
 (include "widgets/date.yuck")
 (include "widgets/time.yuck")
+(include "widgets/utils.yuck")
 (include "widgets/workspaces.yuck")
 (include "widgets/net_status.yuck")
 (include "widgets/updates.yuck")
 (include "widgets/cpu_usage.yuck")
 (include "widgets/ram_usage.yuck")
-(include "widgets/audio.yuck")
 (include "widgets/window_title.yuck")
 
 (defwidget bar []
@@ -16,7 +16,7 @@
         (box :class "center" :halign "start" :hexpand false :vexpand false
             (window_title))
 
-        (box :class "right" :halign "end" :hexpand false :vexpand false
-            (audio)
+        (box :class "right" :halign "end" :hexpand false :vexpand false :space-evenly false
+            (utils)
             (time)
             (date))))

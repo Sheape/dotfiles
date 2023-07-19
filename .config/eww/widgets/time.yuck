@@ -5,9 +5,9 @@
 (defvar time_hovered false)
 
 (defwidget time []
-  (eventbox :onhover "${EWW_CMD} update time_hovered=true"
-    :onhoverlost "${EWW_CMD} update time_hovered=false"
-   (box :class "module" :space-evenly "false" :orientation "h" :spacing "3" :halign "end"
+  (eventbox :class "event_box_time" :halign "end" :onhover "${EWW_CMD} update time_hovered=true"
+            :onhoverlost "${EWW_CMD} update time_hovered=false"
+   (box :class "module time_container" :space-evenly "false" :orientation "h" :spacing "3" :halign "end"
 
    (label :text "󰥔 " :class "time clock-icon")
    (label :text h :class "time")

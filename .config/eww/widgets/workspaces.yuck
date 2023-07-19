@@ -1,17 +1,14 @@
+(deflisten active_workspace :initial 1 "sh ~/.config/eww/scripts/get_active_workspace.sh")
+(defvar workspaces_element "[1, 2, 3, 4, 5, 6, 7]")
+
 (defwidget workspaces []
   (eventbox
     (box :class "module" :space-evenly "false" :orientation "h" :spacing "3"
-      (button :class "workspace_btn" :onclick "hyprctl dispatch workspace 1"
-        (label :text " " :class "workspace_label"))
-      (button :class "workspace_btn" :onclick "hyprctl dispatch workspace 2"
-        (label :text " " :class "workspace_label"))
-      (button :class "workspace_btn" :onclick "hyprctl dispatch workspace 3"
-        (label :text " " :class "workspace_label"))
-      (button :class "workspace_btn" :onclick "hyprctl dispatch workspace 4"
-        (label :text " " :class "workspace_label"))
-      (button :class "workspace_btn" :onclick "hyprctl dispatch workspace 5"
-        (label :text " " :class "workspace_label"))
-      (button :class "workspace_btn" :onclick "hyprctl dispatch workspace 6"
-        (label :text " " :class "workspace_label"))
-      (button :class "workspace_btn" :onclick "hyprctl dispatch workspace 7"
-        (label :text " " :class "workspace_label")))))
+      (for workspace in workspaces_element
+        (overlay
+          (button :class "workspace_btn" :onclick "hyprctl dispatch workspace ${workspace}"
+            (label :text " " :class "workspace_label"))
+            (label :text " " :class "workspace_label workspace_btn_active" :visible {active_workspace == workspace})
+        )
+      )
+    )))
