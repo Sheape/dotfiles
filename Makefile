@@ -1,3 +1,4 @@
+OLD_PWD := $(PWD)
 PWD := $(CURDIR)
 HOME_DOTFILES := system/home-dotfiles
 
@@ -24,3 +25,6 @@ deploy: ## Deploy the configuration from local repo to home
 		else \
 			echo "No changes in ${HOME}/$$item"; fi; \
 	done
+
+diff: ## Check if there's a difference between local changes and local repo
+	diff -r $(OLD_PWD) ${PWD}/$$(realpath --relative-to=${HOME} $(OLD_PWD))
