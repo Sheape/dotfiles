@@ -24,6 +24,8 @@ vim.g.shiftwidth = 4
 vim.g.expandtab = true
 vim.bo.smartindent = true
 vim.wo.signcolumn = "yes"
+vim.opt.titlestring = "%t - Neovide"
+vim.opt.title = true
 
 -- Relative number and nu
 vim.wo.relativenumber = false -- BUG: Set this to true when neovide#1634 got fixed.

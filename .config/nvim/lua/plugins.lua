@@ -1,4 +1,12 @@
 vim.cmd([[packadd packer.nvim]])
+local languages = {
+	"lua",
+	"css",
+	"rust",
+	"typescript",
+	"json",
+	"markdown",
+}
 
 -- Note: Optimize LSP for certain filetypes
 return require("packer").startup(function()
@@ -9,13 +17,14 @@ return require("packer").startup(function()
 	use("dcampos/nvim-snippy")
 
 	---* LSP Stuff *---
-	use("folke/neodev.nvim")
-	use("neovim/nvim-lspconfig")
-	use("williamboman/mason.nvim")
-	use("williamboman/mason-lspconfig.nvim")
+	use({ "folke/neodev.nvim", ft = "lua" })
+	use({ "neovim/nvim-lspconfig", ft = languages })
+	use({ "williamboman/mason.nvim", after = "nvim-lspconfig", ft = languages })
+	use({ "williamboman/mason-lspconfig.nvim", after = "mason.nvim", ft = languages })
+	use({ "simrat39/rust-tools.nvim", after = "mason-lspconfig", ft = "rust" })
 	use("jose-elias-alvarez/null-ls.nvim")
 	use("mfussenegger/nvim-dap")
-	use({ "mxsdev/nvim-dap-vscode-js", requires = { "mfussenegger/nvim-dap" } })
+	use({ "mxsdev/nvim-dap-vscode-js", after = "nvim-dap", requires = { "mfussenegger/nvim-dap" } })
 	use({
 		"microsoft/vscode-js-debug",
 		opt = true,
@@ -60,6 +69,8 @@ return require("packer").startup(function()
 		"Wansmer/treesj",
 		requires = { "nvim-treesitter" },
 	})
+	use("ThePrimeagen/harpoon")
+	use("folke/todo-comments.nvim")
 
 	-- Autocompletion
 	use("hrsh7th/nvim-cmp")
@@ -80,3 +91,4 @@ return require("packer").startup(function()
 	-- use({ "pwntester/octo.nvim" })
 	-- use({ "stevearc/overseer.nvim" })
 end)
+
