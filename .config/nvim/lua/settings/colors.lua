@@ -30,6 +30,7 @@ local catppuccin_config = {
 		mason = true,
 		treesitter = true,
 		lsp_saga = true,
+    harpoon = true,
 		indent_blankline = {
 			enabled = true,
 			colored_indent_levels = true

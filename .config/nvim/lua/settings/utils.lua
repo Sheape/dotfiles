@@ -3,6 +3,7 @@ local comment = require("Comment")
 local align = require("mini.align")
 local surround = require("nvim-surround")
 local treesj = require('treesj')
+local todo_comments = require('todo-comments.config')
 
 local keybindings = {
 	toggler = {
@@ -24,6 +25,8 @@ local keybindings = {
 		eol = "gcA",
 	},
 }
+
+local todo_comments_config = {}
 
 local comment_config = {
 	padding = true,
@@ -54,3 +57,4 @@ comment.setup(comment_config)
 surround.setup(surround_config)
 align.setup(align_config)
 treesj.setup(treesj_config)
+todo_comments.setup(todo_comments_config);

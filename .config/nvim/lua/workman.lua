@@ -102,13 +102,24 @@ keymap("n", "gs", "<cmd>Lspsaga signature_help<cr>",        { noremap = true, si
 keymap("n", "gd", "<cmd>Lspsaga peek_definition<cr>",       { noremap = true, silent = true })
 
 ----* Nvim-tree *----
-keymap("n", "<leader>t", "<cmd>NvimTreeToggle<cr>", { noremap = true, silent = true })
+keymap("n", "<leader>tf", "<cmd>NvimTreeToggle<cr>", { noremap = true, silent = true })
 
 ----* TreeSJ *----
 keymap("n", "<leader>gt", "<cmd>TSJToggle<cr>", { noremap = true, silent = true })
 
 ----* Undotree *----
 keymap("n", "<leader>u", "<cmd>UndotreeToggle<cr>", { noremap = true, silent = true })
+
+----* Harpoon *----
+keymap("n", "<leader>ha", "<cmd>lua require('harpoon.mark').add_file()<cr>",        { noremap = true, silent = true })
+keymap("n", "<leader>th", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", { noremap = true, silent = true })
+keymap("n", "<leader>1", "<cmd>lua require('harpoon.ui').nav_file(1)<cr>zz",         { noremap = true, silent = true })
+keymap("n", "<leader>2", "<cmd>lua require('harpoon.ui').nav_file(2)<cr>zz",         { noremap = true, silent = true })
+keymap("n", "<leader>3", "<cmd>lua require('harpoon.ui').nav_file(3)<cr>zz",         { noremap = true, silent = true })
+keymap("n", "<leader>4", "<cmd>lua require('harpoon.ui').nav_file(4)<cr>zz",         { noremap = true, silent = true })
+keymap("n", "<leader>5", "<cmd>lua require('harpoon.ui').nav_file(5)<cr>zz",         { noremap = true, silent = true })
+keymap("n", "<leader>6", "<cmd>lua require('harpoon.ui').nav_file(6)<cr>zz",         { noremap = true, silent = true })
+keymap("n", "<leader>7", "<cmd>lua require('harpoon.ui').nav_file(7)<cr>zz",         { noremap = true, silent = true })
 
 workman = {}
 

@@ -3,6 +3,7 @@ local neodev = require("neodev") -- Neodev should come first before lspconfig
 local mason = require("mason")
 local mason_lsp_package = require("mason-lspconfig")
 local lspconfig = require("lspconfig")
+local rust_tools = require("rust-tools")
 local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
 local fidget = require("fidget")
 local null_ls = require("null-ls")
@@ -56,6 +57,12 @@ local handler = {
   -- })
 }
 
+local rust_handler = {
+  server = {
+    capabilities = lsp_capabilities
+  }
+}
+
 ---* Visual loading screen w/ fidget *---
 local fidget_config = {
   text = {
@@ -84,7 +91,6 @@ local lint_config = {
   ensure_installed = {
     -- Linters
     "pyre", -- Yes ik ik, proprietary facebook is here ._.
-    "selene",
     "shellcheck",
 
     -- Formatter
@@ -95,7 +101,6 @@ local lint_config = {
     "stylua",
   },
   sources = {
-    linter.selene,
     -- linter.shellcheck,
     linter.editorconfig_checker,
     formatter.mdformat,
@@ -177,3 +182,4 @@ null_ls.setup(lint_config)
 -- dap_vscode_js.setup(vscode_js_config)
 debugger_ui.setup(debugger_ui_config)
 neotest.setup(neotest_config)
+rust_tools.setup(rust_handler)
