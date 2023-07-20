@@ -12,7 +12,7 @@ alias \
     v="neovide --multigrid --nofork --novsync" \
     vi="nvim" \
     lg="lazygit" \
-    lf="lfcd --command 'set hidden'" \
+    lf="lfcd" \
     grep="grep --color=auto" \
     diff="diff --color=auto" \
     o="xdg-open"

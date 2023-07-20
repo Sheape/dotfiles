@@ -9,8 +9,23 @@ map k search-next
 map K search-prev
 
 set previewer ~/.config/lf/preview
-
 set cursorpreviewfmt "\033[7;90m"
+
+# Commands
+cmd open &{{
+	mimetype=$(file --brief --dereference --mime-type $f)
+	defapp=$(xdg-mime query default $mimetype)
+	case "$defapp" in
+	nvim.desktop)
+        lf -remote "send $id \$nvim $f"
+		;;
+	vim.desktop)
+        lf -remote "send $id \$vim $f"
+		;;
+	*)
+		xdg-open $f
+	esac
+}}
 
 cmd dots_add &{{
     ~/.bin/dots add home $fs | xargs -I % lf -remote "send $id echo %"
@@ -22,5 +37,10 @@ cmd dots_remove &{{
     lf -remote "send $id unselect"
 }}
 
+# More mappings
 map <c-a> dots_add
 map <c-d> dots_remove
+map c
+map cd %~/.config/lf/lf-mkdir
+map cf %~/.config/lf/lf-mkfile
+map D push :delete

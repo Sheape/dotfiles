@@ -39,9 +39,10 @@ source $plugins/zsh-vi-mode/zsh-vi-mode.zsh
 source $plugins/zsh-powerlevel10k/powerlevel10k.zsh-theme
 
 eval "$(lua ${plugins}/zsh-zlua/z.lua --init zsh enhanced once fzf)"
+
 # Terminal-specific keybindings
 ## Lf
-#bindkey -s '^o' 'lfcd\n'
+bindkey -s "^l" "lfcd\n"
 
 # Starship
 ## Fixes the bug, if a pre-configured theme is already selected, starship doesn't apply
