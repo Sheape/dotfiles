@@ -1,0 +1,8 @@
+(include "widgets/audio.yuck")
+
+(defwidget utils[]
+  (box :class "module utils" :halign "end" :space-evenly false
+    (audio)
+    (net_status)
+  )
+)

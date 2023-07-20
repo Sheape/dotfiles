@@ -11,7 +11,6 @@
 (defwidget bar []
     (centerbox :orientation "h" :class "bar"
         (box :class "left" :halign "start" :hexpand false :vexpand false
-            (updates)
             (workspaces))
         (box :class "center" :halign "start" :hexpand false :vexpand false
             (window_title))
