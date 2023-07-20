@@ -22,7 +22,8 @@ c.url.searchengines = {'DEFAULT': 'https://searx.tiekoetter.com/search?q={}',
                        'yt': 'https://youtube.com/results?search_query={}',
                        'lay': 'https://gpo.zugaina.org/Search?search={}',
                        'a': 'https://wiki.archlinux.org/?search={}',
-                       'w': 'https://en.wiktionary.org/wiki/{}'
+                       'w': 'https://en.wiktionary.org/wiki/{}',
+                       'gh': 'https://github.com/{}'
                        }
 
 # Default font

@@ -124,3 +124,8 @@
 .config/eww/widgets/utils.yuck
 .config/hypr/scripts/no-border-one-window.sh
 .config/xdg-desktop-portal-hyprland/config
+.config/mutt/catppuccin-mocha
+.config/mutt/muttrc
+.config/mutt/workman
+.config/lf/lf-mkdir
+.config/lf/lf-mkfile
