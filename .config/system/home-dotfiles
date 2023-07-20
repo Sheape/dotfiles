@@ -12,8 +12,6 @@
 .config/eww/widgets/bar.yuck
 .config/eww/widgets/cpu_usage.yuck
 .config/eww/widgets/date.yuck
-.config/eww/widgets/desktop.yuck
-.config/eww/widgets/desktop_clock.yuck
 .config/eww/widgets/net_status.yuck
 .config/eww/widgets/powermenu.yuck
 .config/eww/widgets/ram_usage.yuck
@@ -123,3 +121,6 @@
 .config/eww/widgets/window_title.yuck
 .config/eww/scripts/get_window_title.sh
 .config/eww/.editorconfig
+.config/eww/widgets/utils.yuck
+.config/hypr/scripts/no-border-one-window.sh
+.config/xdg-desktop-portal-hyprland/config
