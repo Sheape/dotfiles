@@ -8,7 +8,7 @@
                         :width "99%"
                         :height "40px"
                         :anchor "top center")
-    :stacking "fg"
+    :stacking "bottom"
     :exclusive true
     (bar))
 
