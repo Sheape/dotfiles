@@ -18,7 +18,8 @@ c.aliases = {
 
 c.url.searchengines = {'DEFAULT': 'https://searx.tiekoetter.com/search?q={}',
                        'g': 'https://wiki.gentoo.org/?search={}',
-                       'pkg': 'https://packages.gentoo.org/packages/search?q={}',
+                       'pkg-gentoo': 'https://packages.gentoo.org/packages/search?q={}',
+                       'pkg': 'https://github.com/search?q=repo%3Avoid-linux%2Fvoid-packages%20{}&type=code',
                        'yt': 'https://youtube.com/results?search_query={}',
                        'lay': 'https://gpo.zugaina.org/Search?search={}',
                        'a': 'https://wiki.archlinux.org/?search={}',
