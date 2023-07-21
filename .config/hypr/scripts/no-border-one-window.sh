@@ -1,5 +1,9 @@
 #!/bin/sh
 eww_bar="bar" # Window name of your eww bar
+shadow_color_one="0xff181825" # Shadow color if only one window is present
+shadow_color_multiple="b4befecc" # Shadow color if multiple windows are in a workspace
+cmd_one_window="keyword dwindle:no_gaps_when_only false; keyword general:border_size 0; keyword decoration:rounding 10; keyword decoration:col.shadow $shadow_color_one"
+cmd_multiple_window="keyword general:border_size 2; keyword decoration:rounding 3; keyword decoration:col.shadow rgba($shadow_color_multiple)"
 
 set_border_size() {
     no_of_windows=$(hyprctl activeworkspace -j | jq .windows)
@@ -8,14 +12,14 @@ set_border_size() {
 
     if  [ -n "$is_eww_bar_enabled" ]; then
         if [ "$no_of_windows" = 1 ] || { [ "$no_of_windows" -lt 3 ] && [ -n "$swallow_window_state" ]; }; then
-            hyprctl --batch "keyword dwindle:no_gaps_when_only false; keyword general:border_size 0"
+            hyprctl --batch "$cmd_one_window"
         else
-            hyprctl keyword general:border_size 2
+            hyprctl --batch "$cmd_multiple_window"
         fi
     elif [ "$no_of_windows" = 1 ] || { [ "$no_of_windows" -lt 3 ] && [ -n "$swallow_window_state" ]; }; then
         hyprctl keyword dwindle:no_gaps_when_only true
     else
-        hyprctl keyword general:border_size 2
+        hyprctl --batch "keyword general:border_size 2; keyword decoration:rounding 3"
     fi
 }
 
