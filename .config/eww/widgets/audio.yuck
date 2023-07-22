@@ -3,24 +3,24 @@
 (defvar volume_value true)
 
 (defwidget audio []
-	(eventbox  :onhover "${EWW_CMD} update volume=true && ${EWW_CMD} update volume_value=false"
-		   :onhoverlost "${EWW_CMD} update volume=false && ${EWW_CMD} update volume_value=true"
-	(box       :class "utils_submodule"
-                   :orientation "h"
-		   :space-evenly "false"
-		   :spacing "2"
-        (button    :onclick "footclient pulsemixer" :class "volume-btn"
-        (label     :text ""                        :class "volume-icon"))
-        (label     :text "${current-volume}%"       :class "volume-value"  :visible volume_value)
-	(revealer  :transition "slideright"
-		   :reveal volume
-		   :duration "550ms"
-	(scale     :class "volbar"
-		   :value current-volume
-		   :orientation "h"
-		   :flipped false
-		   :tooltip "Volume: ${current-volume}%"
-		   :max 101
-		   :min 0
-		   :onchange "pulsemixer --set-volume {}" ))
+	(eventbox           :onhover "${EWW_CMD} update volume=true && ${EWW_CMD} update volume_value=false"
+		                :onhoverlost "${EWW_CMD} update volume=false && ${EWW_CMD} update volume_value=true"
+	(box                :class "utils_submodule"
+                        :orientation "h"
+		                :space-evenly "false"
+		                :spacing "2"
+        (button         :onclick "footclient pulsemixer" :class "volume-btn"
+        (label          :text ""                        :class "volume-icon"))
+        (label          :text "${current-volume}%"       :class "volume-value"  :visible volume_value)
+	(revealer           :transition "slideright"
+		                :reveal volume
+		                :duration "550ms"
+	(scale              :class "volbar"
+		                :value current-volume
+		                :orientation "h"
+		                :flipped false
+		                :tooltip "Volume                 : ${current-volume}%"
+		                :max 101
+		                :min 0
+		                :onchange "pulsemixer --set-volume {}" ))
       )))

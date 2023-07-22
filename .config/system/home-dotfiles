@@ -130,3 +130,5 @@
 .config/lf/lf-mkdir
 .config/lf/lf-mkfile
 .config/hypr/catppuccin-mocha.conf
+.config/eww/scripts/logger.py
+.config/eww/widgets/notification.yuck

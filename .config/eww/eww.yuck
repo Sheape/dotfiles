@@ -1,5 +1,6 @@
 (include "widgets/bar.yuck")
 (include "widgets/powermenu.yuck")
+(include "widgets/notification.yuck")
 
 (defwindow bar
     :monitor 0
