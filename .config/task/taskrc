@@ -1,0 +1,37 @@
+data.location=~/.local/task
+#include catppuccin-mocha.theme
+
+uda.taskwarrior-tui.keyconfig.down=n
+uda.taskwarrior-tui.keyconfig.up=e
+uda.taskwarrior-tui.keyconfig.page-down=N
+uda.taskwarrior-tui.keyconfig.page-up=E
+uda.taskwarrior-tui.keyconfig.zoom=+
+uda.taskwarrior-tui.keyconfig.quit=q
+uda.taskwarrior-tui.keyconfig.refresh=r
+uda.taskwarrior-tui.keyconfig.go-to-bottom=G
+uda.taskwarrior-tui.keyconfig.go-to-top=gg
+uda.taskwarrior-tui.keyconfig.delete=x
+uda.taskwarrior-tui.keyconfig.done=d
+uda.taskwarrior-tui.keyconfig.start-stop=s
+uda.taskwarrior-tui.keyconfig.quick-tag=t
+uda.taskwarrior-tui.keyconfig.undo=u
+uda.taskwarrior-tui.keyconfig.edit=E
+uda.taskwarrior-tui.keyconfig.modify=m
+uda.taskwarrior-tui.keyconfig.shell=!
+uda.taskwarrior-tui.keyconfig.log=l
+uda.taskwarrior-tui.keyconfig.add=a
+uda.taskwarrior-tui.keyconfig.annotate=A
+uda.taskwarrior-tui.keyconfig.filter=/
+uda.taskwarrior-tui.keyconfig.context-menu=c
+uda.taskwarrior-tui.keyconfig.next-tab=]
+uda.taskwarrior-tui.keyconfig.previous-tab=[
+
+uda.reward.type=numeric
+uda.reward.label=Reward 
+urgency.uda.reward.coefficient=2
+
+report.next.labels=ID,Urgency,Priority,Project,Description,Tags,Reward 
+report.next.columns=id,urgency,priority,project,description,tags,reward
+
+color.active=black on green
+news.version=2.6.0
