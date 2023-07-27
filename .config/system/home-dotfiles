@@ -132,3 +132,9 @@
 .config/hypr/catppuccin-mocha.conf
 .config/eww/scripts/logger.py
 .config/eww/widgets/notification.yuck
+.config/task/taskrc
+.config/calcure/config.ini
+.config/abook/abookrc
+.config/mpv/input.conf
+.config/zsh/.p10k.zsh
+.config/fontconfig/fonts.conf

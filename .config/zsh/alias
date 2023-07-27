@@ -3,18 +3,24 @@
 
 # Frontend to neovim: https://github.com/neovide/neovide
 alias \
-    ls="exa -lah" \
+    ls="COLUMNS=50 exa -ah --icons" \
+    lsa="exa -lah --icons" \
     mv="mv -i" \
     rm="rm -i" \
     cp="cp -i" \
     cf="config" \
     cl="clear" \
+    abook="abook -C ~/.config/abook/abookrc -f ~/.local/share/abook/addressbook" \
     v="neovide --multigrid --nofork --novsync" \
     vi="nvim" \
     lg="lazygit" \
     lf="lfcd" \
     grep="grep --color=auto" \
     diff="diff --color=auto" \
+    query="xbps-query -Rs" \
+    install="sudo xbps-install -S" \
+    update="sudo xbps-install -Su" \
+    calc="kalker" \
     o="xdg-open"
 
 ## Warning: Watch out for version 600 on less
@@ -39,6 +45,14 @@ alias sl="suckless" \
 #alias mpv="devour mpv"
 #alias sxiv="devour sxiv"
 #alias zat="devour zathura"
+
+# Taskwarrior aliases
+alias \
+    t="task" \
+    ta="task add" \
+    tl="task all" \
+    tn="task next" \
+    tui="taskwarrior-tui"
 
 # Git aliases
 alias \
