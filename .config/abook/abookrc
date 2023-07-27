@@ -1,0 +1,3 @@
+set autosave=true
+set index_format=" {name:22} {email:40} {phone:12}"
+set www_command=qutebrowser
