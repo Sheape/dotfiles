@@ -100,18 +100,6 @@ local filetype_tab = {
 	color = { bg = "#313244" },
 }
 
-local fileformat = {
-	'fileformat',
-	color = { bg = "#b4befe", fg = "#313244" },
-	separator = { left = "", right = "" },
-}
-
-local encoding = {
-	'encoding',
-	color = { bg = "#313244", fg = "#80A7EA" },
-	separator = { left = "", right = "" },
-}
-
 local branch = {
 	'branch',
 	color = { bg = "#a6e3a1", fg = "#313244" },
@@ -203,9 +191,6 @@ local lualine_config = {
 			space,
 		},
 		lualine_y = {
-			encoding,
-			fileformat,
-			space,
 		},
 		lualine_z = {
 			dia,

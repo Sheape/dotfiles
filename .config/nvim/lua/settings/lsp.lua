@@ -19,64 +19,64 @@ local neotest = require("neotest")
 ---* Main LSP Server Configuration *---
 
 vim.api.nvim_create_autocmd("LspAttach", {
-  desc = "LSP actions",
-  callback = function(event)
-    -- Create your keybindings here...
-  end,
+	desc = "LSP actions",
+	callback = function(event)
+		-- Create your keybindings here...
+	end,
 })
 
 local mason_lspconfig = {
-  ensure_installed = {
-    -- Replace these with whatever servers you want to install
-    -- LSP
-    "bashls",
-    "clangd",
-    "jsonls",
-    "lua_ls",
-    "pyright",
-    "rust_analyzer",
-    "r_language_server",
-    "tsserver",
-    "typst_lsp",
-    "marksman",
-  },
-  automatic_installation = true,
+	ensure_installed = {
+		-- Replace these with whatever servers you want to install
+		-- LSP
+		"bashls",
+		"clangd",
+		"jsonls",
+		"lua_ls",
+		"pyright",
+		"rust_analyzer",
+		"r_language_server",
+		"tsserver",
+		"typst_lsp",
+		"marksman",
+	},
+	automatic_installation = true,
 }
 
 local handler = {
-  function(server_name)
-    lspconfig[server_name].setup({
-      capabilities = lsp_capabilities,
-    })
-  end,
-  -- lspconfig['eslint'].setup({
-  --   capabilities = lsp_capabilities,
-  --   settings = {
-  --     nodePath = os.getenv("HOME")..'./local/share/nvim/mason/packages/eslint/node_modules'
-  --   }
-  -- })
+	function(server_name)
+		lspconfig[server_name].setup({
+			capabilities = lsp_capabilities,
+		})
+	end,
+	-- lspconfig['eslint'].setup({
+	--   capabilities = lsp_capabilities,
+	--   settings = {
+	--     nodePath = os.getenv("HOME")..'./local/share/nvim/mason/packages/eslint/node_modules'
+	--   }
+	-- })
 }
 
 local rust_handler = {
-  server = {
-    capabilities = lsp_capabilities
-  }
+	server = {
+		capabilities = lsp_capabilities,
+	},
 }
 
 ---* Visual loading screen w/ fidget *---
 local fidget_config = {
-  text = {
-    spinner = "meter",
-    commenced = "Initialized",
-  },
-  align = {
-    bottom = false,
-    top = true,
-    right = true,
-  },
-  window = {
-    blend = 100,
-  },
+	text = {
+		spinner = "meter",
+		commenced = "Initialized",
+	},
+	align = {
+		bottom = false,
+		top = true,
+		right = true,
+	},
+	window = {
+		blend = 100,
+	},
 }
 
 ---* Linting & Formatting *---
@@ -84,92 +84,122 @@ local formatter = null_ls.builtins.formatting
 local linter = null_ls.builtins.diagnostics
 
 local lint_config = {
-  -- Uncomment this down below if you want format on save
-  -- on_attach = autocmd.formatting_on_save,
-  on_attach = workman.null_ls_on_attach,
-  debug = false,
-  ensure_installed = {
-    -- Linters
-    "pyre", -- Yes ik ik, proprietary facebook is here ._.
-    "shellcheck",
+	-- Uncomment this down below if you want format on save
+	-- on_attach = autocmd.formatting_on_save,
+	on_attach = workman.null_ls_on_attach,
+	debug = false,
+	ensure_installed = {
+		-- Linters
+		"pyre", -- Yes ik ik, proprietary facebook is here ._.
+		"shellcheck",
 
-    -- Formatter
-    "beautysh",
-    "black",
-    "clangformat",
-    "prettierd",
-    "stylua",
-  },
-  sources = {
-    -- linter.shellcheck,
-    linter.editorconfig_checker,
-    formatter.mdformat,
-    formatter.black,
-    formatter.shfmt.with({ extra_args = { "-i 4", "-sr", "kp", "-ci", "-bn" } }),
-    -- formatter.shellharden,
-    formatter.prettierd,
-    formatter.stylua,
-  },
+		-- Formatter
+		"beautysh",
+		"black",
+		"clangformat",
+		"prettierd",
+		"stylua",
+	},
+	sources = {
+		-- linter.shellcheck,
+		linter.editorconfig_checker,
+		formatter.mdformat,
+		formatter.black,
+		formatter.shfmt.with({ extra_args = { "-i 4", "-sr", "kp", "-ci", "-bn" } }),
+		-- formatter.shellharden,
+		formatter.prettierd,
+		formatter.stylua,
+	},
 }
 
 ---* Debugging *---
 
 debugger.adapters["pwa-node"] = {
-  type = "server",
-  host = "localhost",
-  port = "${port}",
-  executable = {
-    command = "node",
-    args = {
-      "/home/sheape/.local/share/nvim/mason/packages/js-debug-adapter/js-debug/src/dapDebugServer.js",
-      "${port}",
-    },
-  },
+	type = "server",
+	host = "localhost",
+	port = "${port}",
+	executable = {
+		command = "node",
+		args = {
+			"/home/sheape/.local/share/nvim/mason/packages/js-debug-adapter/js-debug/src/dapDebugServer.js",
+			"${port}",
+		},
+	},
 }
 
 for _, language in ipairs({ "typescript", "javascript " }) do
-  debugger.configurations[language] = {
-    {
-      type = "pwa-node",
-      request = "launch",
-      name = "Launch file",
-      program = "${file}",
-      cwd = "${workspaceFolder}",
-    },
-    {
-      type = "pwa-node",
-      request = "attach",
-      name = "Attach",
-      processId = require("dap.utils").pick_process,
-      cwd = "${workspaceFolder}",
-    },
-  }
+	debugger.configurations[language] = {
+		{
+			type = "pwa-node",
+			request = "launch",
+			name = "Launch file",
+			program = "${file}",
+			cwd = "${workspaceFolder}",
+		},
+		{
+			type = "pwa-node",
+			request = "attach",
+			name = "Attach",
+			processId = require("dap.utils").pick_process,
+			cwd = "${workspaceFolder}",
+		},
+	}
 end
 
+debugger.adapters.lldb = {
+	type = "executable",
+	command = "/usr/bin/lldb-vscode",
+	name = "lldb",
+}
+
+debugger.configurations.rust = {
+	{
+		initCommands = function()
+			-- Find out where to look for the pretty printer Python module
+			local rustc_sysroot = vim.fn.trim(vim.fn.system("rustc --print sysroot"))
+
+			local script_import = 'command script import "' .. rustc_sysroot .. '/lib/rustlib/etc/lldb_lookup.py"'
+			local commands_file = rustc_sysroot .. "/lib/rustlib/etc/lldb_commands"
+
+			local commands = {}
+			local file = io.open(commands_file, "r")
+			if file then
+				for line in file:lines() do
+					table.insert(commands, line)
+				end
+				file:close()
+			end
+			table.insert(commands, 1, script_import)
+
+			return commands
+		end,
+	},
+}
+
 local debugger_ui_config = {
-  mappings = workman.dapui_config.mappings,
+	mappings = workman.dapui_config.mappings,
 }
 
 ----* Neotest *----
 local neotest_config = {
-  adapters = {
-    require("neotest-jest")({
-      jestCommand = "npm test --",
-      jestConfigFile = "custom.jest.config.ts",
-      env = { CI = true },
-      cwd = function(path)
-        return vim.fn.getcwd()
-      end,
-    }),
-  },
+	adapters = {
+		require("neotest-jest")({
+			jestCommand = "npm test --",
+			jestConfigFile = "custom.jest.config.ts",
+			env = { CI = true },
+			cwd = function(path)
+				return vim.fn.getcwd()
+			end,
+		}),
+	},
 }
 
 ----* Lspsaga *----
 local lspsaga_config = {
-  ui = {
-    devicon = true,
-    kind = require("catppuccin.groups.integrations.lsp_saga").custom_kind(),
-  },
+	ui = {
+		devicon = true,
+		kind = require("catppuccin.groups.integrations.lsp_saga").custom_kind(),
+	},
 }
 
 neodev.setup()
