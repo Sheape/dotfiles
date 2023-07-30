@@ -13,6 +13,7 @@ alias \
     abook="abook -C ~/.config/abook/abookrc -f ~/.local/share/abook/addressbook" \
     v="neovide --multigrid --nofork --novsync" \
     vi="nvim" \
+    e="emacsclient -c" \
     lg="lazygit" \
     lf="lfcd" \
     grep="grep --color=auto" \
@@ -20,6 +21,7 @@ alias \
     query="xbps-query -Rs" \
     install="sudo xbps-install -S" \
     update="sudo xbps-install -Su" \
+    remove="sudo xbps-remove" \
     calc="kalker" \
     o="xdg-open"
 

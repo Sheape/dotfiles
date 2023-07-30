@@ -138,3 +138,14 @@
 .config/mpv/input.conf
 .config/zsh/.p10k.zsh
 .config/fontconfig/fonts.conf
+.config/ytmdl/config
+.config/youtube-tui/appearance.yml
+.config/youtube-tui/commandbindings.yml
+.config/youtube-tui/commands.yml
+.config/youtube-tui/keybindings.yml
+.config/youtube-tui/main.yml
+.config/youtube-tui/pages.yml
+.config/youtube-tui/search.yml
+.config/doom/config.el
+.config/doom/init.el
+.config/doom/packages.el
