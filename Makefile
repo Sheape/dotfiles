@@ -28,3 +28,7 @@ deploy: ## Deploy the configuration from local repo to home
 
 diff: ## Check if there's a difference between local changes and local repo
 	diff -r $(OLD_PWD) ${PWD}/$$(realpath --relative-to=${HOME} $(OLD_PWD))
+
+void: ## Initial install of void
+btrfs: ## Format various drives to btrfs
+	@read -p ""
