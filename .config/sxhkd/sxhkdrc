@@ -53,6 +53,8 @@ alt + f
 #F1
 #    mail-checker read
 #F2
-#    mail-checker label
+#    mail-checker read_name_only
 #F3
 #    mail-checker repos
+#F4
+#    mail-checker label
