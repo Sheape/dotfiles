@@ -4,7 +4,7 @@
 export DENO_INSTALL="$HOME/.local/src/.deno/"
 
 # PATH
-export PATH="$PATH:$HOME/bin:$HOME/.bin:$HOME/.local/bin:/usr/local/bin:$HOME/.emacs.d/bin:$HOME/.config/emacs/bin:$HOME/bin:$HOME/.local/cargo/bin:/usr/lib/ruby/gems/3.1.0/bin:$DENO_INSTALL/bin"
+export PATH="$PATH:$HOME/bin:$HOME/.bin:$HOME/.local/bin:/usr/local/bin:$HOME/.emacs.d/bin:$HOME/.config/emacs/bin:$HOME/bin:$HOME/.local/cargo/bin:/usr/lib/ruby/gems/3.1.0/bin:$DENO_INSTALL/bin:/opt/texlive/2023/bin/x86_64-linux"
 
 # Other Global Variables
 export CC="clang" \
