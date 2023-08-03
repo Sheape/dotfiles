@@ -23,7 +23,7 @@ c.url.searchengines = {'DEFAULT': 'https://searx.tiekoetter.com/search?q={}',
                        'yt': 'https://youtube.com/results?search_query={}',
                        'lay': 'https://gpo.zugaina.org/Search?search={}',
                        'a': 'https://wiki.archlinux.org/?search={}',
-                       'w': 'https://en.wiktionary.org/wiki/{}',
+                       'w': 'https://en.wikipedia.org/w/index.php?search={}&title=Special%3ASearch&ns0=1',
                        'gh': 'https://github.com/{}'
                        }
 
