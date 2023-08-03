@@ -16,9 +16,9 @@ provider: YouTube
 shell: sh
 legacy_input_handling: false
 env:
-  video-player: mpv
-  terminal-emulator: footclient -e
-  browser: qutebrowser
   save-path: ~/.local/share/youtube-tui/saved/
-  download-path: ~/media/vids/yt/%(title)s-%(id)s.%(ext)s
+  video-player: mpv
   youtube-downloader: yt-dlp
+  download-path: ~/media/vids/yt/%(title)s-%(id)s.%(ext)s
+  browser: qutebrowser
+  terminal-emulator: footclient -e
