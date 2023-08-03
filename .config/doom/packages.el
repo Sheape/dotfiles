@@ -52,3 +52,10 @@
 (package! avy)
 (package! persistent-soft)
 (package! catppuccin-theme)
+(package! org-pomodoro-third-time
+  :recipe (:host github :repo "telotortium/org-pomodoro-third-time"))
+(unpin! org-roam)
+(package! org-roam-ui)
+(package! org-fragtog)
+(package! typst-mode
+  :recipe (:host github :repo "Ziqi-Yang/typst-mode.el"))
