@@ -95,6 +95,7 @@
         org-log-done 'time
         org-hide-emphasis-markers t
         org-startup-with-inline-images t
+        org-image-actual-width 600
         org-startup-folded 'show2levels
         ;; ex. of org-link-abbrev-alist in action
         ;; [[arch-wiki:Name_of_Page][Description]]
@@ -105,6 +106,7 @@
         org-todo-keywords   ; This overwrites the default Doom org-todo-keywords
           '((sequence
              "TODO(t)"        ; A task that is ready to be tackled
+             "REMINDERS(r)"   ; Reminders
              "ALMOST DONE(a)" ; Almost Done
              "CURRENT(c)"     ; Current task
              "QUEUE(q)"       ; Queue upcoming task
@@ -115,6 +117,7 @@
         org-todo-keyword-faces
           `(
             ("TODO" . ((t (:foreground ,(catppuccin-get-color 'blue ) :weight bold))))
+            ("REMINDERS" . ((t (:foreground ,(catppuccin-get-color 'sky ) :weight bold))))
             ("ALMOST DONE" . ((t (:foreground ,(catppuccin-get-color 'peach ) :weight bold))))
             ("CURRENT" . ((t (:foreground ,(catppuccin-get-color 'red ) :weight bold))))
             ("QUEUE" . ((t (:foreground ,(catppuccin-get-color 'lavender ) :weight bold))))
@@ -125,6 +128,7 @@
         org-agenda-custom-commands
           '(("w" "Agenda Work view"
              (
+              (todo "REMINDERS" ((org-agenda-overriding-header "Reminders")))
               (todo "CURRENT" ((org-agenda-overriding-header "Current Task")))
               (todo "QUEUE" ((org-agenda-overriding-header "In Queue")))
               (todo "TODO" ((org-agenda-overriding-header "To-do task")))
@@ -146,9 +150,23 @@
         `(org-level-6 ((t (:family "Cartograph CF" :slant italic :weight normal :foreground ,(catppuccin-get-color 'lavender)))))
         `(org-level-7 ((t (:family "Cartograph CF" :slant italic :weight normal :foreground ,(catppuccin-get-color 'sky)))))
         `(org-level-8 ((t (:family "Cartograph CF" :slant italic :weight normal :foreground ,(catppuccin-get-color 'flamingo)))))
-        `(org-drawer ((t (:foreground ,(catppuccin-get-color 'overlay0)))))
+        ;; `(org-drawer ((t (:foreground ,(catppuccin-get-color 'overlay0))))) Disabled for now cuz its causing some issues with cache.
         `(org-hide ((t (:background ,(catppuccin-get-color 'base ) :foreground ,(catppuccin-get-color 'base)))))
    )
+  (require 'org-clock-budget)
+  (after! org-clock-budget
+    (setq org-clock-budget-daily-budgetable-hours 8)
+    (defun org-clock-budget-interval-today ()
+      (cons
+       (format-time-string "%Y-%m-%d 00:00:00")
+       (format-time-string "%Y-%m-%d 23:59:59")))
+
+    (setq org-clock-budget-intervals
+        '(("BUDGET_TODAY" org-clock-budget-interval-today)
+          ("BUDGET_WEEK" org-clock-budget-interval-this-week)
+          ("BUDGET_MONTH" org-clock-budget-interval-this-month)
+         ))
+    )
 )
 ;; (custom-set-faces
 ;;  '(org-agenda-todo ((t :foreground (catppuccin-get-color 'blue) :weight bold)))
@@ -156,35 +174,61 @@
 
 ;; Workman layout for emacs
 (after! evil
-  (define-key evil-motion-state-map "n" 'evil-next-line)
-  (define-key evil-motion-state-map "N" 'evil-join)
-  (define-key evil-motion-state-map "e" 'evil-previous-line)
-  (define-key evil-motion-state-map "E" 'evil-lookup)
-  (define-key evil-motion-state-map "gn" 'evil-next-visual-line)
-  (define-key evil-motion-state-map "ge" 'evil-previous-visual-line)
-  (define-key evil-normal-state-map "o" 'evil-forward-char)
-  (define-key evil-motion-state-map "O" 'evil-window-bottom)
-  (define-key evil-motion-state-map "zo" 'evil-scroll-column-right)
-  (define-key evil-motion-state-map "zO" 'evil-scroll-right)
-  (define-key evil-motion-state-map "k" 'evil-next-match)
-  (define-key evil-motion-state-map "K" 'evil-previous-match)
-  (define-key evil-motion-state-map "gk" 'evil-next-match)
-  (define-key evil-motion-state-map "gK" 'evil-previous-match)
-  (define-key evil-normal-state-map "y" 'evil-backward-char)
-  (define-key evil-motion-state-map "Y" 'evil-window-top)
-  (define-key evil-motion-state-map "zY" 'evil-scroll-left)
-  (define-key evil-window-map (kbd "SPC w Y") 'evil/window-move-left)
-  (define-key evil-normal-state-map "l" 'evil-open-below)
-  (define-key evil-normal-state-map "L" 'evil-open-above)
-  (define-key evil-motion-state-map (kbd "C-l") 'evil-jump-backward)
-  (define-key evil-normal-state-map "j" 'evil-yank)
-  (define-key evil-normal-state-map "J" 'evil-yank-line)
-  (define-key evil-normal-state-map "r" 'evil-change)
-  (define-key evil-normal-state-map "R" 'evil-change-line)
-  (define-key evil-normal-state-map "m" 'evil-replace)
-  (define-key evil-normal-state-map "M" 'evil-replace-state)
-  (define-key evil-visual-state-map "l" 'evil-replace-state)
-  (define-key evil-window-map (kbd "SPC w Y") 'evil/window-move-left)
+  (map! :map evil-motion-state-map
+        "n" 'evil-next-line
+        "N" 'evil-join
+        "e" 'evil-previous-line
+        "E" 'evil-lookup
+        "gn" 'evil-next-visual-line
+        "ge" 'evil-previous-visual-line
+        "o" 'evil-forward-char
+        "O" 'evil-window-bottom
+        "zo" 'evil-scroll-column-right
+        "zO" 'evil-scroll-right
+        "k" 'evil-next-match
+        "K" 'evil-previous-match
+        "gk" 'evil-next-match
+        "gK" 'evil-previous-match)
+
+  (map! :map evil-normal-state-map
+        "o" 'evil-forward-char
+        "y" 'evil-backward-char
+        "Y" 'evil-window-top
+        "zY" 'evil-scroll-left
+        "l" 'evil-open-below
+        "L" 'evil-open-above
+        "j" 'evil-yank
+        "J" 'evil-yank-line
+        "r" 'evil-change
+        "R" 'evil-change-line
+        "m" 'evil-replace
+        "M" 'evil-replace-state
+        "n" 'evil-next-line
+        "N" 'evil-join
+        "e" 'evil-previous-line
+        "E" 'evil-lookup
+        "gn" 'evil-next-visual-line
+        "ge" 'evil-previous-visual-line
+        "o" 'evil-forward-char
+        "O" 'evil-window-bottom
+        "zo" 'evil-scroll-column-right
+        "zO" 'evil-scroll-right
+        "k" 'evil-next-match
+        "K" 'evil-previous-match
+        "gk" 'evil-next-match
+        "gK" 'evil-previous-match)
+
+
+  ;; (map! :map evil-motion-state-map
+  ;;       (kbd "C-l") 'evil-jump-backward)
+
+  (map! :map evil-window-map
+        :leader
+        :prefix "w"
+        "y" #'evil-window-left
+        "n" #'evil-window-down
+        "e" #'evil-window-up
+        "o" #'evil-window-right)
 )
 
 ;; Org-pomodoro-third-time keybindings
@@ -215,13 +259,14 @@
 
       (
        :prefix ("r" . "Change work/break ratio")
-        :desc "Grinding (1/6)" "g" #'(lambda () (interactive) (custom/set-pomodoro-ratio (/ 1 6.0)))
-        :desc "Hard (1/5)" "h" #'(lambda () (interactive) (custom/set-pomodoro-ratio (/ 1 5.0)))
-        :desc "Industrious (1/4)" "i" #'(lambda () (interactive) (custom/set-pomodoro-ratio (/ 1 4.0)))
-        :desc "Standard (1/3)" "s" #'(lambda () (interactive) (custom/set-pomodoro-ratio (/ 1 3.0)))
         :desc "Lazy (1/2)" "l" #'(lambda () (interactive) (custom/set-pomodoro-ratio (/ 1 2.0)))
+        :desc "Standard (1/3)" "s" #'(lambda () (interactive) (custom/set-pomodoro-ratio (/ 1 3.0)))
+        :desc "Industrious (1/4)" "i" #'(lambda () (interactive) (custom/set-pomodoro-ratio (/ 1 4.0)))
+        :desc "Hard (1/5)" "h" #'(lambda () (interactive) (custom/set-pomodoro-ratio (/ 1 5.0)))
+        :desc "Grinding (1/6)" "g" #'(lambda () (interactive) (custom/set-pomodoro-ratio (/ 1 6.0)))
       )
 )
+
 (map! :after org
       :localleader
       :map org-agenda-mode-map
@@ -236,13 +281,24 @@
 
       (
        :prefix ("r" . "Change work/break ratio")
-        :desc "Grinding (1/6)" "g" #'(lambda () (interactive) (custom/set-pomodoro-ratio (/ 1 6.0)))
-        :desc "Hard (1/5)" "h" #'(lambda () (interactive) (custom/set-pomodoro-ratio (/ 1 5.0)))
-        :desc "Industrious (1/4)" "i" #'(lambda () (interactive) (custom/set-pomodoro-ratio (/ 1 4.0)))
-        :desc "Standard (1/3)" "s" #'(lambda () (interactive) (custom/set-pomodoro-ratio (/ 1 3.0)))
         :desc "Lazy (1/2)" "l" #'(lambda () (interactive) (custom/set-pomodoro-ratio (/ 1 2.0)))
+        :desc "Standard (1/3)" "s" #'(lambda () (interactive) (custom/set-pomodoro-ratio (/ 1 3.0)))
+        :desc "Industrious (1/4)" "i" #'(lambda () (interactive) (custom/set-pomodoro-ratio (/ 1 4.0)))
+        :desc "Hard (1/5)" "h" #'(lambda () (interactive) (custom/set-pomodoro-ratio (/ 1 5.0)))
+        :desc "Grinding (1/6)" "g" #'(lambda () (interactive) (custom/set-pomodoro-ratio (/ 1 6.0)))
       )
 )
+
+(map! :after org
+      :localleader
+      :map org-mode-map
+      :prefix ("c" . "clock")
+
+      :desc "org-clock-budget-report" "b" #'org-clock-budget-report
+      :desc "org-analyzer-start" "a"      #'org-analyzer-start
+      :desc "org-analyzer-stop" "A"       #'org-analyzer-stop
+)
+
 
 ;; Org-roam-ui
 (use-package! websocket
@@ -269,6 +325,27 @@
 
 ;; Typst
 (require 'typst-mode)
+
+;; Rust LSP
+(defun catppuccin-quantize-color (bruv)
+  (message "catppuccin-quantize-color"))
+(defun custom/cargo-run-release ()
+  (interactive)
+  (rustic-cargo-run-command "--release")
+  (message "Release mode enabled"))
+
+(map! :after rustic
+      :localleader
+      :map rustic-mode-map
+      :prefix ("b" . "build")
+      :desc "cargo run --release" "R" #'custom/cargo-run-release
+)
+(add-hook 'rustic-mode-hook #'lsp-inlay-hints-mode)
+(after! rustic
+  (setq lsp-inlay-hint-enable t))
+
+(defun org-element-with-disabled-cache (arg)
+  (message "Keep pushing %s" arg))
 
 ;; Adjusting the home row keys for a more comfortable experience using workman layout with avy
 (setq avy-keys '(?a ?s ?h ?t ?g ?y ?n ?e ?o ?i))

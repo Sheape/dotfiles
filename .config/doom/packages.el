@@ -59,3 +59,6 @@
 (package! org-fragtog)
 (package! typst-mode
   :recipe (:host github :repo "Ziqi-Yang/typst-mode.el"))
+(package! org-analyzer)
+(package! org-clock-budget
+  :recipe (:host github :repo "Fuco1/org-clock-budget"))
