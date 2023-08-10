@@ -37,6 +37,11 @@ cmd dots_remove &{{
     lf -remote "send $id unselect"
 }}
 
+cmd set_wallpaper &{{
+    ~/.bin/set-wallpaper $fs
+    lf -remote "send $id unselect"
+}}
+
 # More mappings
 map <c-a> dots_add
 map <c-d> dots_remove
@@ -44,3 +49,4 @@ map c
 map cd %~/.config/lf/lf-mkdir
 map cf %~/.config/lf/lf-mkfile
 map D push :delete
+map W set_wallpaper
