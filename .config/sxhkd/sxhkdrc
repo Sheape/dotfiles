@@ -50,11 +50,11 @@ alt + {_, shift +}{1-9}
 alt + f
     bspc node -t "~"fullscreen
 
-#F1
-#    mail-checker read
-#F2
-#    mail-checker read_name_only
-#F3
-#    mail-checker repos
-#F4
-#    mail-checker label
+F1
+   mail-checker read
+F2
+   mail-checker read_name_only
+F3
+   mail-checker repos
+F4
+   mail-checker label
