@@ -3,6 +3,6 @@
 
 (defwidget net_status []
   (box :class "utils_submodule"
-    (label :text '${net_status == "up eth" ? "󰈀 ${round(EWW_NET[net_interface].NET_DOWN / 1000,2)} mbps" : net_status == "up wifi" ? "󰖩 ${EWW_NET[net_interface].NET_DOWN} mbps" : "󰖪 Offline"}' :class "net_status")
+    (label :text '${net_status == "up eth" ? "󰖩 ${round(EWW_NET[net_interface].NET_DOWN / 100,2)} mbps" : net_status == "up wifi" ? "󰖩 ${EWW_NET[net_interface].NET_DOWN} mbps" : "󰖪 Offline"}' :class "net_status")
     )
   )
