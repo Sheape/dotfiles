@@ -74,7 +74,7 @@ DEFAULT_FORMAT = "m4a"
 # exit, skip, manual
 # ---------
 #
-ON_META_ERROR = "manual"
+ON_META_ERROR = "skip"
 #****************************************#
 # ITUNES SETTINGS
 # Which region to use while searching from Itunes.
