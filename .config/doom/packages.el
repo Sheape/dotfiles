@@ -55,10 +55,30 @@
 (package! org-pomodoro-third-time
   :recipe (:host github :repo "telotortium/org-pomodoro-third-time"))
 (unpin! org-roam)
-(package! org-roam-ui)
+(package! org-roam-ui ;; Fork of Org-roam ui with export to web functionality
+  :recipe (:host github :repo "o8vm/org-roam-ui"))
 (package! org-fragtog)
 (package! typst-mode
   :recipe (:host github :repo "Ziqi-Yang/typst-mode.el"))
 (package! org-analyzer)
 (package! org-clock-budget
   :recipe (:host github :repo "Fuco1/org-clock-budget"))
+;; (package! hydra)
+;; (package! org-fc
+;;   :recipe (:host git
+;;            :repo "https://git.sr.ht/~l3kn/org-fc"
+;;            :files (:defaults "awk" "demo.org")))
+(package! org-anki)
+(package! org-modern)
+(package! el-patch)
+(package! imenu-list)
+(package! async-await)
+(package! math-preview)
+(package! elcord)
+(package! beacon)
+(package! jupyter)
+(package! ein)
+(package! jtsx
+  :recipe (:host github :repo "llemaitre19/jtsx"))
+(package! codeium
+  :recipe (:host github :repo "Exafunction/codeium.el"))
