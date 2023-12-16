@@ -149,3 +149,7 @@
 .config/doom/config.el
 .config/doom/init.el
 .config/doom/packages.el
+.config/doom/snippets
+.config/doom/create
+.config/doom/custom.el.old
+.config/doom/init.example.el

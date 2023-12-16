@@ -10,6 +10,8 @@ map K search-prev
 
 set previewer ~/.config/lf/preview
 set cursorpreviewfmt "\033[7;90m"
+set icons
+set sixel true
 
 # Commands
 cmd open &{{

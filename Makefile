@@ -1,6 +1,7 @@
 OLD_PWD := $(PWD)
 PWD := $(CURDIR)
 HOME_DOTFILES := system/home-dotfiles
+DEVICE_SELECTED := $(shell gum choose $$(lsblk -nd -o NAME))
 
 .DEFAULT_GOAL := help
 
@@ -29,6 +30,28 @@ deploy: ## Deploy the configuration from local repo to home
 diff: ## Check if there's a difference between local changes and local repo
 	diff -r $(OLD_PWD) ${PWD}/$$(realpath --relative-to=${HOME} $(OLD_PWD))
 
-void: ## Initial install of void
 btrfs: ## Format various drives to btrfs
-	@read -p ""
+	echo "Choose the drive you want to install Void Linux to:"
+	echo "Void Linux will be installed on /dev/${DEVICE_SELECTED}"
+	echo "Creating GPT Partition Table for /dev/${DEVICE_SELECTED}"
+	echo "label: gpt" | sfdisk /dev/${DEVICE_SELECTED}
+	echo "Set the partition size for /boot"
+	boot_size=$$(gum input --placeholder 512M --value 512M); \
+	echo "Creating boot partition"; \
+	echo ',$${boot_size}, U;' | sfdisk /dev/${DEVICE_SELECTED}
+	mkfs.vfat -n BOOT /dev/${DEVICE_SELECTED}1
+	echo "Set the partition size for swap"
+	swap_size=$$(gum input --placeholder 8GB); \
+	echo "Creating swap partition";\
+	echo ',$${swap_size}, S;' | sfdisk /dev/${DEVICE_SELECTED}
+	mkswap -L SWAP /dev/${DEVICE_SELECTED}2
+	echo "Set the partition size for home"
+	home_size=$$(gum input); \
+	echo "Creating home partition"; \
+	echo ',$${home_size}, L;' | sfdisk /dev/${DEVICE_SELECTED}
+	mkfs.btrfs -L HOME /dev/${DEVICE_SELECTED}3
+	echo "Set the partition size for root"
+	root_size=$$(gum input); \
+	echo "Creating root partition"; \
+	echo ',$${root_size}, L;' | sfdisk /dev/${DEVICE_SELECTED}
+	mkfs.btrfs -L ROOT /dev/${DEVICE_SELECTED}4

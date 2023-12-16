@@ -29,3 +29,8 @@ keybinding:
     prevMatch: 'K'
     edit: 'E'
     openFile: 'l'
+customCommands:
+  - key: 'L'
+    context: 'files'
+    command: "git log -n 1 --pretty=format:'%s' -- {{ .SelectedFile.Name }} | xargs -I^ git commit -m '^' || echo Error: no recent commits found, commit the file manually."
+    description: "Commit with the same message as last commit"

@@ -16,11 +16,14 @@ alias \
     e="emacsclient -c" \
     lg="lazygit" \
     lf="lfcd" \
+    man="batman" \
     grep="grep --color=auto" \
     diff="diff --color=auto" \
+    empty="truncate -s 0" \
     query="xbps-query -Rs" \
     install="sudo xbps-install -S" \
     update="sudo xbps-install -Su" \
+    check-update="sudo xbps-install -Snu" \
     remove="sudo xbps-remove" \
     calc="kalker" \
     o="xdg-open"
