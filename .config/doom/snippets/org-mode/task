@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: create-todo
+# key: curT
+# condition: t
+# --
+CURRENT ${1:Task description} :${2:Tags}:
+:PROPERTIES:
+:BUDGET_TODAY:  ${3:Budget}
+:END:

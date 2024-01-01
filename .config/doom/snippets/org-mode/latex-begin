@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: latex-begin
+# key: begin-latex
+# --
+\begin{${1:environment}}
