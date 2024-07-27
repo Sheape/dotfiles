@@ -1,0 +1,5 @@
+packages:
+  - package: "ImageMagick"
+    pkg_name: "ImageMagick"
+  - package: "R"
+    pkg_name: "R"
