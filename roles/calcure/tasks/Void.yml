@@ -1,0 +1,12 @@
+- name: "{{ package }} | {{ ansible_distribution }} | Check for Installation"
+  ansible.builtin.command:
+    cmd: pipx list
+  register: package_check
+  failed_when: false
+  changed_when: false
+
+- name: "{{ package }} | {{ ansible_distribution }} | Install"
+  community.general.pipx:
+    name: "{{ pkg_name }}"
+    state: present
+  when: "pkg_name not in package_check.stdout"

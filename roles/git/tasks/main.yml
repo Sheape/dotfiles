@@ -1,0 +1,30 @@
+---
+- name: "{{ package }} | Checking for Distribution Config: {{ ansible_distribution }}"
+  ansible.builtin.stat:
+    path: "{{ role_path }}/tasks/{{ ansible_distribution }}.yml"
+  register: distribution_config
+
+- name: "{{ package }} | Checking for Directory Config: {{ user_config }}/{{ pkg_name }}"
+  ansible.builtin.stat:
+    path: "{{ user_config }}/{{ pkg_name }}"
+  register: dir_config
+
+- name: "{{ package }} | Run Tasks: {{ ansible_distribution }}"
+  ansible.builtin.include_tasks: "{{ ansible_distribution }}.yml"
+  when: distribution_config.stat.exists
+
+- name: "{{ package }} | Create config directory"
+  ansible.builtin.file:
+    path: "{{ user_config }}/{{ pkg_name }}"
+    mode: "0755"
+    state: directory
+  when: not dir_config.stat.exists
+
+# Skip deployment if config already exists
+- name: "{{ package }} | Deploy config"
+  ansible.builtin.template:
+    src: "config.j2"
+    dest: "{{ user_config }}/{{ pkg_name }}/config"
+    mode: "0644"
+    force: true
+  when: not dir_config.stat.exists

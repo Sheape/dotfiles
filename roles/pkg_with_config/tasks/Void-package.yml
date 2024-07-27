@@ -1,0 +1,46 @@
+# Void Package setup
+- name: "{{ pkg.package }} | {{ ansible_distribution }} | Check for Installation"
+  ansible.builtin.shell:
+    cmd: "xbps-query -s {{ pkg.pkg_name }} | awk '$2 ~ /^{{ pkg.pkg_name }}-[0-9]/ {print $0}'"
+  register: package_check
+  failed_when: false
+  changed_when: false
+  when: pkg.pkg_name != lf
+
+- name: "{{ pkg.package }} | {{ ansible_distribution }} | Check for Installation"
+  ansible.builtin.shell:
+    cmd: "xbps-query -s {{ pkg.pkg_name }} | awk '$2 ~ /^{{ pkg.pkg_name }}-r[0-9]/ {print $0}'"
+  register: package_check
+  failed_when: false
+  changed_when: false
+  when: pkg.pkg_name == lf
+
+- name: "{{ pkg.package }} | {{ ansible_distribution }} | Install"
+  community.general.xbps:
+    name: "{{ pkg.pkg_name }}"
+    state: present
+  when: package_check.stdout == ""
+
+# Config setup
+- name: "{{ pkg.package }} | Checking for Directory Config: {{ user_config }}/{{ pkg.pkg_name }}"
+  ansible.builtin.stat:
+    path: "{{ user_config }}/{{ pkg.pkg_name }}"
+  register: dir_config
+
+# Skip deployment if config already exists
+- name: "{{ pkg.package }} | Deploy config"
+  ansible.builtin.copy:
+    src: "{{ pkg.pkg_name }}"
+    dest: "{{ user_config }}/"
+    mode: "0644"
+    directory_mode: "0755"
+    force: true
+  when: not dir_config.stat.exists
+
+- name: "{{ pkg.package }} | Backup config"
+  ansible.builtin.copy:
+    src: "{{ user_config }}/{{ pkg.pkg_name }}/"
+    dest: "{{ role_path }}/files/{{ pkg.pkg_name }}"
+    mode: "0644"
+    directory_mode: "0755"
+    force: true

@@ -1,0 +1,55 @@
+default_roles:
+  # - abook
+  - pkg_with_config
+  # - bat
+  # - btop
+  # - calcure
+  # - cava
+  # - cli-chess
+  # - dunst
+  # - docker
+  # - emacs
+  # - eww
+  # - fonts
+  # - foot
+  # - fzf
+  # - git
+  # - glow
+  # - groff
+  # - gtk
+  # - hyprland
+  # - kalker
+  # - keepassxc
+  # - lazydocker
+  # - lazygit
+  # - less
+  # - lf
+  # - mpv
+  # - neatroff
+  # - neofetch
+  # - nvim
+  # - pcmanfm
+  # - posting
+  # - posting
+  # - qt6
+  # - qutebrowser
+  # - sc-im
+  # - starship
+  # - system
+  # - wayland
+  # - wofi
+  # - ytmdl
+  # - zathura
+  # - zsh
+
+# Must match with XDG_CONFIG_HOME
+user_config: "{{ ansible_env.XDG_CONFIG_HOME }}"
+git_user_name: "Sheape"
+git_user_email: !vault |
+  $ANSIBLE_VAULT;1.1;AES256
+  33373138326466383132633734386335336461396563656464653537326438656264323030336131
+  6166343631643239346162613864656662336535333431610a663033313537303263383536386564
+  65643963613565313130343434326135366161396461623262663562396636633732303137613865
+  3565313237316635650a366233346634653632363837366164376134623264623136626435623637
+  36343236366364323863396264643331663535313831626530376365396634306466303133343735
+  3734633732303962333062326662346163393562333436313761

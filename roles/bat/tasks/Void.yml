@@ -1,0 +1,27 @@
+- name: "{{ package }} | {{ ansible_distribution }} | Check for Installation"
+  ansible.builtin.shell:
+    cmd: "xbps-query -s {{ pkg_name }} | awk '$2 ~ /^{{ pkg_name }}-[0-9]/ {print $0}'"
+  register: package_check_main
+  failed_when: false
+  changed_when: false
+
+- name: "{{ package }} | {{ ansible_distribution }} | Install"
+  become: yes
+  community.general.xbps:
+    name: "{{ pkg_name }}"
+    state: present
+  when: package_check_main.stdout == ""
+
+- name: "{{ package }} Extras | {{ ansible_distribution }} | Check for Installation"
+  ansible.builtin.shell:
+    cmd: "xbps-query -s {{ pkg_name }}-extras | awk '$2 ~ /^{{ pkg_name }}-extras-[0-9]/ {print $0}'"
+  register: package_check_extras
+  failed_when: false
+  changed_when: false
+
+- name: "{{ package }} Extras | {{ ansible_distribution }} | Install"
+  become: yes
+  community.general.xbps:
+    name: "{{ pkg_name }}-extras"
+    state: present
+  when: package_check_extras.stdout == ""

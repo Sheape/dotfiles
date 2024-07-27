@@ -1,0 +1,61 @@
+- name: "{{ package }} | {{ ansible_distribution }} | Check for Installation"
+  ansible.builtin.shell:
+    cmd: "xbps-query -s {{ pkg_name }} | awk '$2 ~ /^{{ pkg_name }}-[0-9]/ {print $0}'"
+  register: docker_check
+  failed_when: false
+  changed_when: false
+
+- name: "{{ package }} | {{ ansible_distribution }} | Install"
+  become: yes
+  community.general.xbps:
+    name: "{{ pkg_name }}"
+    state: present
+  when: docker_check.stdout == ""
+
+- name: "{{ package }} CLI | {{ ansible_distribution }} | Check for Installation"
+  ansible.builtin.shell:
+    cmd: "xbps-query -s {{ pkg_name }}-cli | awk '$2 ~ /^{{ pkg_name }}-cli-[0-9]/ {print $0}'"
+  register: docker_cli_check
+  failed_when: false
+  changed_when: false
+
+- name: "{{ package }} CLI | {{ ansible_distribution }} | Install"
+  become: yes
+  community.general.xbps:
+    name: "{{ pkg_name }}-cli"
+    state: present
+  when: docker_cli_check.stdout == ""
+
+- name: "{{ package }} Compose | {{ ansible_distribution }} | Check for Installation"
+  ansible.builtin.shell:
+    cmd: "xbps-query -s {{ pkg_name }}-compose | awk '$2 ~ /^{{ pkg_name }}-compose-[0-9]/ {print $0}'"
+  register: docker_compose_check
+  failed_when: false
+  changed_when: false
+
+- name: "{{ package }} Compose | {{ ansible_distribution }} | Install"
+  become: yes
+  community.general.xbps:
+    name: "{{ pkg_name }}-compose"
+    state: present
+  when: docker_compose_check.stdout == ""
+
+- name: "{{ package }} | Runit | Check if {{ package }} is linked"
+  ansible.builtin.stat:
+    path: /var/service/{{ pkg_name }}
+  register: docker_service_check
+
+- name: "{{ package }} | Runit | Link {{ package }} service to /var/service"
+  become: yes
+  ansible.builtin.file:
+    src: /etc/sv/{{ pkg_name }}
+    dest: /var/service/{{ pkg_name }}
+    state: link
+  when: not docker_service_check.stat.exists
+
+- name: "{{ package }} | Runit | Enable Docker Service"
+  become: yes
+  community.general.runit:
+    name: docker
+    state: started
+  when: docker_service_check.stat.exists and docker_service_check.stat.islnk
