@@ -1,0 +1,14 @@
+# Void Package setup
+- name: "{{ category }} | {{ pkg.package }} | {{ ansible_distribution }} | Check for Installation"
+  ansible.builtin.shell:
+    cmd: "xbps-query -s {{ pkg.pkg_name }} | awk '$2 ~ /^{{ pkg.pkg_name }}-[0-9]/ {print $0}'"
+  register: package_check
+  failed_when: false
+  changed_when: false
+
+- name: "{{ category }} | {{ pkg.package }} | {{ ansible_distribution }} | Install"
+  become: true
+  community.general.xbps:
+    name: "{{ pkg.pkg_name }}"
+    state: present
+  when: package_check.stdout == ""

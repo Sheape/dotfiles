@@ -1,0 +1,12 @@
+category: "Audio"
+packages:
+  - package: "Alsa library"
+    pkg_name: "alsa-lib"
+  - package: "Alsa Pipewire"
+    pkg_name: "alsa-pipewire"
+  - package: "Alsa Pulseaudio"
+    pkg_name: "alsa-plugins-pulseaudio"
+  - package: "Alsa Utils"
+    pkg_name: "alsa-utils"
+  - package: "Pipewire"
+    pkg_name: "pipewire"

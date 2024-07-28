@@ -1,6 +1,7 @@
 default_roles:
-  # - abook
-  - pkg_with_config
+  - audio
+  - c-deps
+  - pkg-with-config
   # - bat
   # - btop
   # - calcure

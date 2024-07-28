@@ -1,0 +1,8 @@
+category: "Printing"
+packages:
+  - package: "Cups"
+    pkg_name: "cups"
+  - package: "Cups Devel"
+    pkg_name: "cups-devel"
+  - package: "Cups Filters"
+    pkg_name: "cups-filters"

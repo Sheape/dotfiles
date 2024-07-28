@@ -1,0 +1,6 @@
+category: "Latex"
+packages:
+  - package: "Texlab"
+    pkg_name: "texlab"
+  - package: "Texlive 2024"
+    pkg_name: "texlive2024-bin"

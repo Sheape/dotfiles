@@ -16,6 +16,7 @@
   when: pkg.pkg_name == lf
 
 - name: "{{ pkg.package }} | {{ ansible_distribution }} | Install"
+  become: true
   community.general.xbps:
     name: "{{ pkg.pkg_name }}"
     state: present

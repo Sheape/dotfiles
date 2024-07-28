@@ -6,6 +6,7 @@
 - [[#recommended-packages][Recommended Packages]]
 - [[#known-issues][Known Issues]]
 - [[#notes][Notes]]
+- [[#startup-sequence][Startup Sequence]]
 
 * About
 ** Qtile
@@ -64,3 +65,12 @@
 * Notes
 - The GTK theme that I use is orchis-gtk-theme, I will modify some of its colors to my liking.
 - Icon theme used is Tela-circle-pink.
+
+* Startup Sequence
+- ~/.config/zsh/.zprofile
+- ~/.config/Wayland/winitrc
+- ~/.config/hypr/autostart.conf
+- ~/.bin/autostart-wayland
+
+For switching the default keyboard layout in console:
+sudo loadkeys /usr/share/X11/xkb/symbols/workman
