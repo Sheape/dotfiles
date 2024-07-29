@@ -10,3 +10,23 @@
   loop: "{{ packages }}"
   loop_control:
     loop_var: pkg
+
+- name: "{{ category }} | Checking for Workman Keyboard Layout"
+  ansible.builtin.stat:
+    path: "/usr/share/X11/xkb/symbols/workman"
+  register: workman_config
+
+- name: "{{ category }} | Deploying Workman Layout"
+  become: true
+  ansible.builtin.copy:
+    src: "workman"
+    dest: "/usr/share/X11/xkb/symbols/workman"
+    owner: root
+    group: root
+    mode: "0644"
+  when: not workman_config.stat.exists
+
+- name: "{{ category }} | Setting Default Layout to Workman (Console)"
+  become: true
+  ansible.builtin.command: loadkeys workman
+  when: not workman_config.stat.exists
