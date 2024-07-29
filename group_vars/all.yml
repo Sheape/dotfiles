@@ -1,7 +1,19 @@
 default_roles:
   - audio
+  - bat
   - c-deps
+  - calcure
+  - docker
+  - fonts
+  - fs-compression
+  - git
+  - gtk
+  - latex
+  - pkg-only
   - pkg-with-config
+  - printing
+  - system
+  - zsh
   # - bat
   # - btop
   # - calcure

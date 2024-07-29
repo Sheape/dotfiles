@@ -1,0 +1,4 @@
+category: "Zsh"
+packages:
+  - package: "Zsh"
+    pkg_name: "zsh"

@@ -1,0 +1,14 @@
+- name: "{{ category }} | Checking for System-wide Config"
+  ansible.builtin.stat:
+    path: "/etc/zsh/{{ item }}"
+  register: system_config
+
+- name: "{{ category }} | Deploying System-wide Config"
+  become: true
+  ansible.builtin.copy:
+    src: "{{ item }}"
+    dest: "/etc/zsh/{{ item }}"
+    owner: root
+    group: root
+    mode: "0644"
+  when: not system_config.stat.exists

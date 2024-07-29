@@ -1,0 +1,2 @@
+#!/bin/zsh
+[ -f "$HOME/.config/system/env" ] && source "$HOME/.config/system/env"
