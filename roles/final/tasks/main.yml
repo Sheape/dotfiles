@@ -1,0 +1,12 @@
+---
+- name: "Doom | Syncing and updating packages"
+  ansible.builtin.shell: "{{ user_config }}/emacs/bin/doom sync"
+
+- name: "Void | Updating all packages"
+  become: true
+  community.general.xbps:
+    upgrade: true
+
+- name: "Void | Reconfigure all"
+  become: true
+  ansible.builtin.shell: "xbps-reconfigure -fa"

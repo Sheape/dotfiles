@@ -12,7 +12,7 @@
     loop_var: pkg
 
 - name: "{{ category }} | Checking for Doom Installation"
-  ansible.builtin.statt:
+  ansible.builtin.stat:
     path: "~/.config/emacs"
   register: emacs_config
 

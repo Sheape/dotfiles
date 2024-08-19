@@ -1,0 +1,54 @@
+#!/bin/sh
+
+# Deno
+export DENO_INSTALL="$HOME/.local/src/.deno/"
+export ANDROID_HOME="/opt/android-sdk"
+
+# PATH
+export PATH="$PATH:$HOME/bin:$HOME/.bin:$HOME/.local/bin:/usr/local/bin:$HOME/.emacs.d/bin:$HOME/.config/emacs/bin:$HOME/bin:$HOME/.local/cargo/bin:/usr/lib/ruby/gems/3.1.0/bin:$DENO_INSTALL/bin:/opt/texlive/2023/bin/x86_64-linux:/usr/lib/qt6/bin:$HOME/.local/share/pnpm:$ANDROID_HOME/emulator:$ANDROID_HOME/platform-tools:/opt/texlive/2024/bin/x86_64-linux"
+
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+# BAT_PAGER="less --lesskey-src /home/sheape/.config/less/lesskey"
+# Other Global Variables
+export CC="clang" \
+       DISTRO="void" \
+       DISTRO_LIST="void:gentoo" \
+       EDITOR="nvim" \
+       TERMINAL="st" \
+       BROWSER="qutebrowser"  \
+       PAGER="less --lesskey-src /home/sheape/.config/less/lesskey" \
+       MANPAGER="less -RF --lesskey-src /home/sheape/.config/less/lesskey" \
+       ARCH="x86_64" \
+       XBPS_ARCH=$ARCH \
+       XBPS_TARGET_ARCH=$ARCH \
+       PNPM_HOME="$HOME/.local/share/pnpm"
+
+export XDG_CACHE_HOME="$HOME/.cache" \
+       XDG_CONFIG_HOME="$HOME/.config" \
+       XDG_DATA_HOME="$HOME/.local/share" \
+       XDG_RUNTIME_DIR="/run/user/1000" \
+       ZDOTDIR="$XDG_CONFIG_HOME/zsh" \
+       DIRSTACKFILE="$XDG_CACHE_HOME/zsh/dirs" \
+       STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml" \
+       GROFF_FONT_PATH="/usr/share/fonts/groff"
+
+# Vivid for cool colorschemes using exa
+export LS_COLORS="$(vivid generate catppuccin-mocha)" \
+       BAT_THEME="Catppuccin-mocha" \
+       QT_QPA_PLATFORMTHEME="qt6ct"
+
+# Rust-related if using rustup
+export RUSTUP_HOME="$HOME/.local/rustup" \
+       CARGO_HOME="$HOME/.local/cargo"
+
+# Xdeb - converts debian packages to void linux packages
+export XDEB_PKGROOT="$HOME/.local/src/xdeb/" \
+       XDEB_OPT_DEPS=true \
+       XDEB_OPT_WARN_CONFLICT=true \
+       XDEB_OPT_FIX_CONFLICT=true
+
+# Use PyQt6 by default
+export QUTE_QT_WRAPPER="PyQt6"

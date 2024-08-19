@@ -49,13 +49,6 @@
   become: yes
   ansible.builtin.file:
     src: /etc/sv/{{ pkg_name }}
-    dest: /var/service/{{ pkg_name }}
+    dest: /etc/runit/runsvdir/default/{{ pkg_name }}
     state: link
   when: not docker_service_check.stat.exists
-
-- name: "{{ package }} | Runit | Enable Docker Service"
-  become: yes
-  community.general.runit:
-    name: docker
-    state: started
-  when: docker_service_check.stat.exists and docker_service_check.stat.islnk

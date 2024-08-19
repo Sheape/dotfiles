@@ -1,0 +1,62 @@
+#vim: ft=conf
+$rosewaterAlpha = #f5e0dc
+$flamingoAlpha  = #f2cdcd
+$pinkAlpha      = #f5c2e7
+$mauveAlpha     = #cba6f7
+$redAlpha       = #f38ba8
+$maroonAlpha    = #eba0ac
+$peachAlpha     = #fab387
+$yellowAlpha    = #f9e2af
+$greenAlpha     = #a6e3a1
+$tealAlpha      = #94e2d5
+$skyAlpha       = #89dceb
+$sapphireAlpha  = #74c7ec
+$blueAlpha      = #89b4fa
+$lavenderAlpha  = #b4befe
+
+$textAlpha      = #cdd6f4
+$subtext1Alpha  = #bac2de
+$subtext0Alpha  = #a6adc8
+
+$overlay2Alpha  = #9399b2
+$overlay1Alpha  = #7f849c
+$overlay0Alpha  = #6c7086
+
+$surface2Alpha  = #585b70
+$surface1Alpha  = #45475a
+$surface0Alpha  = #313244
+
+$baseAlpha      = #1e1e2e
+$mantleAlpha    = #181825
+$crustAlpha     = #11111b
+
+$rosewater = #fff5e0dc
+$flamingo  = #fff2cdcd
+$pink      = #fff5c2e7
+$mauve     = #ffcba6f7
+$red       = #fff38ba8
+$maroon    = #ffeba0ac
+$peach     = #fffab387
+$yellow    = #fff9e2af
+$green     = #ffa6e3a1
+$teal      = #ff94e2d5
+$sky       = #ff89dceb
+$sapphire  = #ff74c7ec
+$blue      = #ff89b4fa
+$lavender  = #ffb4befe
+
+$text      = #ffcdd6f4
+$subtext1  = #ffbac2de
+$subtext0  = #ffa6adc8
+
+$overlay2  = #ff9399b2
+$overlay1  = #ff7f849c
+$overlay0  = #ff6c7086
+
+$surface2  = #ff585b70
+$surface1  = #ff45475a
+$surface0  = #ff313244
+
+$base      = #ff1e1e2e
+$mantle    = #ff181825
+$crust     = #ff11111b

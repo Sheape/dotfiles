@@ -10,3 +10,7 @@
   loop: "{{ packages }}"
   loop_control:
     loop_var: pkg
+
+- name: "{{ category }} | Install packages"
+  become: true
+  ansible.builtin.shell: "/opt/texlive/2024/bin/x86_64-linux/tlmgr install biber biber.x86_64-linux biblatex biblatex-apa cm etex fancyhdr fontaxes hyph-utf8 hyphen-base iftex import knuth-lib kpathsea kpathsea.x86_64-linux l3backend l3kernel l3packages libertine luatex luatex.x86_64-linux mweights plain scheme-infraonly tex-ini-files texlive-scripts texlive-scripts.x86_64-linux texlive.infra texlive.infra.x86_64-linux unicode-data xkeyval"

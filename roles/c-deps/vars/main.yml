@@ -5,7 +5,7 @@ packages:
   - package: "Binutils Doc"
     pkg_name: "binutils-doc"
   - package: "Binutils Libraries"
-    pkg_name: "binutils-lib"
+    pkg_name: "binutils-libs"
   - package: "Bison"
     pkg_name: "bison"
   - package: "Clang"

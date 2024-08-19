@@ -1,0 +1,55 @@
+---
+- name: "{{ ansible_distribution }} (Config only) | Checking for Mimeapps list"
+  ansible.builtin.stat:
+    path: "{{ user_config }}/mimeapps.list"
+  register: mimeapps_config
+
+- name: "{{ ansible_distribution }} (Config only) | Deploying Mimeapps list"
+  ansible.builtin.copy:
+    src: "mimeapps.list"
+    dest: "{{ user_config }}/"
+    mode: "0644"
+    force: true
+  when: not mimeapps_config.stat.exists
+
+- name: "{{ ansible_distribution }} (Config only) | Checking for System env"
+  ansible.builtin.stat:
+    path: "{{ user_config }}/system/env"
+  register: env_config
+
+- name: "{{ ansible_distribution }} (Config only) | Deploying System env"
+  ansible.builtin.copy:
+    src: "system"
+    dest: "{{ user_config }}/"
+    mode: "0644"
+    directory_mode: "0755"
+    force: true
+  when: not env_config.stat.exists
+
+- name: "{{ ansible_distribution }} (Config only) | Checking for Wayland"
+  ansible.builtin.stat:
+    path: "{{ user_config }}/system/winitrc"
+  register: wayland_config
+
+- name: "{{ ansible_distribution }} (Config only) | Deploying Wayland"
+  ansible.builtin.copy:
+    src: "Wayland"
+    dest: "{{ user_config }}/"
+    mode: "0644"
+    directory_mode: "0755"
+    force: true
+  when: not wayland_config.stat.exists
+
+- name: "{{ ansible_distribution }} (Config only) | Checking for Hyprland"
+  ansible.builtin.stat:
+    path: "{{ user_config }}/hypr"
+  register: hypr_config
+
+- name: "{{ ansible_distribution }} (Config only) | Deploying Hyprland"
+  ansible.builtin.copy:
+    src: "hypr"
+    dest: "{{ user_config }}/"
+    mode: "0644"
+    directory_mode: "0755"
+    force: true
+  when: not hypr_config.stat.exists

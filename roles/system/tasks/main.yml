@@ -11,12 +11,77 @@
   loop_control:
     loop_var: pkg
 
-- name: "{{ category }} | Checking for Workman Keyboard Layout"
+- name: "{{ category }} | Checking for Workman Keyboard Layout (X11)"
   ansible.builtin.stat:
     path: "/usr/share/X11/xkb/symbols/workman"
   register: workman_config
 
-- name: "{{ category }} | Deploying Workman Layout"
+- name: "{{ category }} | Checking for Workman Keyboard Layout (loadkeys)"
+  ansible.builtin.stat:
+    path: "/usr/share/kbd/keymaps/i386/qwerty/us-workman.kmap"
+  register: workman_loadkeys_config
+
+- name: "{{ category }} | Checking for Hyprland-Void repository"
+  ansible.builtin.stat:
+    path: "/etc/xbps.d/hyprland-void.conf"
+  register: hyprland_config
+
+- name: "{{ category }} | Checking for Local repository"
+  ansible.builtin.stat:
+    path: "/etc/xbps.d/local-repo.conf"
+  register: local_config
+
+- name: "{{ category }} | Checking for Voidlings repository"
+  ansible.builtin.stat:
+    path: "/etc/xbps.d/voidlings.conf"
+  register: voidlings_config
+
+- name: "{{ category }} | Deploying Hyprland Void Repository"
+  become: true
+  ansible.builtin.copy:
+    src: "hyprland-void.conf"
+    dest: "/etc/xbps.d/hyprland-void.conf"
+    owner: root
+    group: root
+    mode: "0644"
+  when: not hyprland_config.stat.exists
+
+- name: "{{ category }} | Deploying Local Repository"
+  become: true
+  ansible.builtin.copy:
+    src: "local-repo.conf"
+    dest: "/etc/xbps.d/local-repo.conf"
+    owner: root
+    group: root
+    mode: "0644"
+  when: not local_config.stat.exists
+
+- name: "{{ category }} | Deploying Voidlings Repository"
+  become: true
+  ansible.builtin.template:
+    src: "voidlings.conf.j2"
+    dest: "/etc/xbps.d/voidlings.conf"
+    owner: root
+    group: root
+    mode: "0644"
+    force: true
+  when: not voidlings_config.stat.exists
+
+- name: "{{ category }} | Syncing Repositories"
+  become: true
+  ansible.builtin.shell: "xbps-install -Sy"
+
+- name: " {{ category }} | Creating Dir for workman layout (X11)"
+  become: true
+  ansible.builtin.file:
+    path: "/usr/share/X11/xkb/symbols"
+    state: directory
+    mode: 0755
+    owner: root
+    group: root
+  when: not workman_config.stat.exists
+
+- name: "{{ category }} | Deploying Workman Layout (X11)"
   become: true
   ansible.builtin.copy:
     src: "workman"
@@ -26,7 +91,16 @@
     mode: "0644"
   when: not workman_config.stat.exists
 
-- name: "{{ category }} | Setting Default Layout to Workman (Console)"
+- name: "{{ category }} | Deploying Workman Layout (loadkeys)"
   become: true
-  ansible.builtin.command: loadkeys workman
-  when: not workman_config.stat.exists
+  ansible.builtin.copy:
+    src: "us-workman.kmap"
+    dest: "/usr/share/kbd/keymaps/i386/qwerty/us-workman.kmap"
+    owner: root
+    group: root
+    mode: "0644"
+  when: not workman_loadkeys_config.stat.exists
+
+- name: "{{ category }} | Enabling Workman Layout (loadkeys)"
+  become: true
+  ansible.builtin.shell: "loadkeys /usr/share/kbd/keymaps/i386/qwerty/us-workman.kmap"

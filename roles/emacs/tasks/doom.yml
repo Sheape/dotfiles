@@ -1,5 +1,10 @@
 - name: "{{ category }} | Cloning repository for Doom"
   ansible.builtin.shell: "git clone --depth 1 https://github.com/doomemacs/doomemacs {{ user_config }}/emacs"
 
+- name: "{{ category }} | Making doom executable"
+  ansible.builtin.file:
+    path: "{{ user_config }}/emacs/bin/doom"
+    mode: "0755"
+
 - name: "{{ category }} | Installing doom"
   ansible.builtin.shell: "{{ user_config }}/emacs/bin/doom install"

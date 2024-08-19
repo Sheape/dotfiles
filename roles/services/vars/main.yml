@@ -1,0 +1,13 @@
+services:
+  - service_name: "Chrony Daemon"
+    service: "chronyd"
+  - service_name: "Elogin Daemon"
+    service: "elogind"
+  - service_name: "Dbus"
+    service: "dbus"
+  - service_name: "SSH Daemon"
+    service: "sshd"
+  - service_name: "DHCPCD"
+    service: "dhcpcd"
+  - service_name: "Network Manager Daemon"
+    service: "NetworkManager"

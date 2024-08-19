@@ -1,0 +1,12 @@
+- name: "{{ sv.service_name }} | Runit | Check if {{ sv.service }} is linked"
+  ansible.builtin.stat:
+    path: /etc/runit/runsvdir/default/{{ sv.service }}
+  register: service_check
+
+- name: "{{ sv.service_name }} | Runit | Link {{ sv.service }} service to /etc/runit/runsvdir/default"
+  become: yes
+  ansible.builtin.file:
+    src: /etc/sv/{{ sv.service }}
+    dest: /etc/runit/runsvdir/default/{{ sv.service }}
+    state: link
+  when: not service_check.stat.exists

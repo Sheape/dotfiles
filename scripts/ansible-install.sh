@@ -12,5 +12,8 @@ sudo -u $USERNAME git clone https://github.com/Sheape/dotfiles.git /home/${USERN
 echo "Password for Ansible-vault: "
 read ansible_vault_passwd
 
+sudo -u $USERNAME mkdir -v /home/${USERNAME}/.ansible
+sudo -u $USERNAME echo $ansible_vault_passwd > /home/${USERNAME}/.ansible/vault.secret
+
 echo "Running Ansible playbook"
-sudo -u $USERNAME ansible-playbook -K /home/${USERNAME}/code/dotfiles/ansible/playbook.yml --vault-password-file <(echo $ansible_vault_passwd) /home/${USERNAME}/code/dotfiles/main.yml
+sudo -u $USERNAME XDG_CONFIG_HOME="/home/${USERNAME}/.config" ansible-playbook -K --vault-password-file /home/${USERNAME}/.ansible/vault.secret /home/${USERNAME}/code/dotfiles/main.yml

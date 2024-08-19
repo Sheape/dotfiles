@@ -1,29 +1,5 @@
 #!/bin/sh
 
-# Check if the script was ran with root permissions
-if [ "$(id -u)" -ne 0 ]; then
-	echo "This script must be run with root."
-	exit 1
-fi
-
-mkdir_dne() {
-	if [ ! -d "$1" ]; then mkdir -pv "$1"; fi
-}
-
-USERNAME=$(awk -F: '$6 ~ /^\/home/ { print $1 }' /mnt/etc/passwd)
-
-echo "Installing ansible and git"
-xchroot /mnt "xbps-install -Sy ansible git"
-
-echo "Cloning dotfiles repo"
-mkdir_dne /home/${USERNAME}/code
-sudo -u $USERNAME git clone https://github.com/Sheape/dotfiles.git /home/${USERNAME}/code/dotfiles
-
-echo "Password for Ansible-vault: "
-read ansible_vault_passwd
-[anon@void-live ~]$ cat base-install.sh 
-#!/bin/sh
-
 . /tmp/void-config
 
 echo "Updating system"
@@ -55,7 +31,7 @@ echo "Setting user password"
 echo "${USERNAME}:${USER_PASSWD}" | chpasswd
 
 echo "Enabling all users for sudo in sudoers file"
-sed -i 's/^#%wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/' /etc/sudoers
+sed -i 's/^# %wheel ALL=(ALL:ALL) ALL/s/^# //' /etc/sudoers
 
 echo "Building /etc/fstab file"
 echo "Mounting /dev/${DEVICE_SELECTED}1 to /boot/efi"
