@@ -1,0 +1,8 @@
+category: "Emacs"
+packages:
+  - package: "Emacs"
+    pkg_name: "emacs"
+  - package: "Emacs GTK"
+    pkg_name: "emacs-gtk3"
+  - package: "Emacs Common"
+    pkg_name: "emacs-common"

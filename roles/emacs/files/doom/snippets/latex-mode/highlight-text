@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: highlight-text
+# key: hl
+# condition: t
+# --
+\highLight[${2:green}]

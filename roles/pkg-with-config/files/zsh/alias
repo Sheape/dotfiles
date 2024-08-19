@@ -1,0 +1,74 @@
+#!/bin/zsh
+# Aliases for Zsh
+
+# Frontend to neovim: https://github.com/neovide/neovide
+alias \
+    ls="COLUMNS=50 exa -ah --icons" \
+    lsa="exa -lah --icons" \
+    mv="mv -i" \
+    rm="rm -i" \
+    cp="cp -i" \
+    cf="config" \
+    cl="clear" \
+    abook="abook -C ~/.config/abook/abookrc -f ~/.local/share/abook/addressbook" \
+    v="neovide --multigrid --nofork --novsync" \
+    vi="nvim" \
+    e="emacsclient -c" \
+    lg="lazygit" \
+    lf="lfcd" \
+    man="batman" \
+    grep="grep --color=auto" \
+    diff="diff --color=auto" \
+    empty="truncate -s 0" \
+    query="xbps-query -Rs" \
+    install="sudo xbps-install -S" \
+    update="sudo xbps-install -Su" \
+    check-update="sudo xbps-install -Snu" \
+    remove="sudo xbps-remove" \
+    calc="kalker" \
+    o="xdg-open"
+
+## Warning: Watch out for version 600 on less
+alias \
+    less="less --lesskey-src $XDG_CONFIG_HOME/less/lesskey"
+    # dotfiles="git --git-dir=$HOME/dotfiles --work-tree=$HOME"
+
+# Requires doasedit from your favorite implementation.
+# https://github.com/stefanwimmer128/doasedit
+alias se="doasedit"
+
+# Shorter name for my scripts
+# Requires colorpicker: https://github.com/Jack12816/colorpicker
+# Requires qutebrowser-profile: https://github.com/jtyers/qutebrowser-profile
+alias sl="suckless" \
+    q="qutebrowser-profile" \
+    cv="img2eps" \
+    color="colorpicker --short --one-shot | xclip -sel clipboard -t UTF8_STRING"
+
+# Requires devour for window mnaagers other than dwm
+# https://github.com/salman-abedin/devour/
+#alias mpv="devour mpv"
+#alias sxiv="devour sxiv"
+#alias zat="devour zathura"
+
+# Taskwarrior aliases
+alias \
+    t="task" \
+    ta="task add" \
+    tl="task all" \
+    tn="task next" \
+    tui="taskwarrior-tui"
+
+# Git aliases
+alias \
+    g="git" \
+    ga="git add --all" \
+    gap="git apply" \
+    gs="git status" \
+    gb="git branch" \
+    gc="git checkout" \
+    gcb="git checkout -b" \
+    gcl="git clone" \
+    gcm="git commit -v" \
+    gm="git merge" \
+    gmt="git mergetool --tool=nvimdiff" \

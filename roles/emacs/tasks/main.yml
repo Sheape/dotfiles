@@ -1,0 +1,45 @@
+---
+- name: "{{ category }} | Checking for Distribution Config: {{ ansible_distribution }}"
+  ansible.builtin.stat:
+    path: "{{ role_path }}/tasks/{{ ansible_distribution }}-package.yml"
+  register: distribution_config
+
+- name: "{{ category }} | Run Tasks: {{ ansible_distribution }}"
+  ansible.builtin.include_tasks: "{{ ansible_distribution }}-package.yml"
+  when: distribution_config.stat.exists
+  loop: "{{ packages }}"
+  loop_control:
+    loop_var: pkg
+
+- name: "{{ category }} | Checking for Doom Installation"
+  ansible.builtin.statt:
+    path: "~/.config/emacs"
+  register: emacs_config
+
+- name: "{{ category }} | Run Tasks: Doom"
+  ansible.builtin.include_tasks: "doom.yml"
+  when: not emacs_config.stat.exists
+
+# Config setup
+- name: "{{ category }} | Checking for Directory Config: {{ user_config }}/doom"
+  ansible.builtin.stat:
+    path: "{{ user_config }}/doom"
+  register: doom_config
+
+# Skip deployment if config already exists
+- name: "{{ category }} | Deploy config"
+  ansible.builtin.copy:
+    src: "doom"
+    dest: "{{ user_config }}/"
+    mode: "0644"
+    directory_mode: "0755"
+    force: true
+  when: not doom_config.stat.exists
+
+- name: "{{ category }} | Backup config"
+  ansible.builtin.copy:
+    src: "{{ user_config }}/doom/"
+    dest: "{{ role_path }}/files/doom"
+    mode: "0644"
+    directory_mode: "0755"
+    force: true

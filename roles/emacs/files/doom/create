@@ -1,0 +1,6 @@
+#!/bin/zsh
+emacsclient -c \
+    -e "(progn (add-hook 'org-capture-after-finalize-hook
+     #'custom/org-capture-close-frame)
+(shell-command \"hyprctl --batch 'dispatch movetoworkspace special:create; dispatch workspace special:create; dispatch submap reset;'\")
+(org-capture nil \"t\"))"

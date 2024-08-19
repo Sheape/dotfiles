@@ -1,6 +1,4 @@
 category: "System"
 packages:
-  - package: "Grub"
-    pkg_name: "grub"
   - package: "Grub x86-64"
     pkg_name: "grub-x86_64-efi"

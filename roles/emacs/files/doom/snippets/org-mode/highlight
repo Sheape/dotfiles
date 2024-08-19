@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: highlight-latex
+# key: hl
+# --
+\highLight[${1:color}]{${2:text}}

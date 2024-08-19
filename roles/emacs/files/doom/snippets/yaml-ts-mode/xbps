@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: Package manager for Void Linux
+# key: xbps
+# condition: ansible
+# --
+- name: Install ${0:package}
+  community.general.xbps:
+    name: ${0:package}

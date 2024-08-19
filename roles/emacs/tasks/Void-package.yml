@@ -12,18 +12,3 @@
     name: "{{ pkg.pkg_name }}"
     state: present
   when: package_check.stdout == ""
-
-- name: "{{ category }} | {{ ansible_distribution }} | Checking for Nerd Fonts"
-  ansible.builtin.stat:
-    path: "/usr/share/fonts"
-  register: nerd_dir
-
-- name: "{{ category }} | {{ ansible_distribution }} | Install Nerd Fonts"
-  become: true
-  ansible.builtin.copy:
-    src: "nerd-fonts"
-    dest: "/usr/share/fonts/"
-    mode: "0644"
-    directory_mode: "0755"
-    force: true
-  when: not nerd_dir.stat.exists
