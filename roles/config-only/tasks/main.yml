@@ -60,8 +60,7 @@
   register: hyprpaper_config
 
 - name: "{{ ansible_distribution }} (Config only) | Creating Directory for wallpaper"
-  ansible.builtin.file:
-    path: "{{ ansible_env.HOME }}/media/pics/wallpapers/catppuccin/wallpapers/misc/"
+  ansible.builtin.shell: "mkdir -pv {{ ansible_env.HOME }}/media/pics/wallpapers/catppuccin/wallpapers/misc/"
   when: not hyprpaper_config.stat.exists
 
 - name: "{{ ansible_distribution }} (Config only) | Deploying Wallpaper"
