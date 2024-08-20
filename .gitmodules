@@ -1,0 +1,19 @@
+[submodule "roles/pkg-with-config/files/qutebrowser/catppuccin"]
+    path = roles/pkg-with-config/files/qutebrowser/catppuccin
+    url = https://github.com/catppuccin/qutebrowser.git
+
+[submodule "roles/zsh/files/plugins/zsh-autosuggestions"]
+    path = roles/zsh/files/plugins/zsh-autosuggestions
+    url = https://github.com/zsh-users/zsh-autosuggestions.git
+
+[submodule "roles/zsh/files/plugins/zsh-fast-syntax-highlighting"]
+    path = roles/zsh/files/plugins/zsh-fast-syntax-highlighting
+    url = https://github.com/zdharma-continuum/fast-syntax-highlighting.git
+
+[submodule "roles/zsh/files/plugins/zsh-vi-mode"]
+    path = roles/zsh/files/plugins/zsh-vi-mode
+    url = https://github.com/jeffreytse/zsh-vi-mode.git
+
+[submodule "roles/zsh/files/plugins/zsh-zlua"]
+    path = roles/zsh/files/plugins/zsh-zlua
+    url = https://github.com/skywind3000/z.lua.git
