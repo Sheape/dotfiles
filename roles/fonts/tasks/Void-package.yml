@@ -15,7 +15,7 @@
 
 - name: "{{ category }} | {{ ansible_distribution }} | Checking for Nerd Fonts"
   ansible.builtin.stat:
-    path: "/usr/share/fonts"
+    path: "/usr/share/fonts/nerd-fonts"
   register: nerd_dir
 
 - name: "{{ category }} | {{ ansible_distribution }} | Install Nerd Fonts"
@@ -27,3 +27,20 @@
     directory_mode: "0755"
     force: true
   when: not nerd_dir.stat.exists
+
+- name: "{{ category }} | {{ ansible_distribution }} | Copy all JetBrains fonts to /usr/share/fonts/TTF"
+  become: true
+  ansible.builtin.find:
+    paths: "{{ role_path }}/files/jetbrains-mono"
+    patterns: "*.ttf"
+  register: ttf_files
+
+- name: "{{ category }} | {{ ansible_distribution }} | Deploying JetBrains fonts to /usr/share/fonts/TTF"
+  become: true
+  ansible.builtin.copy:
+    src: "{{ item.path }}"
+    dest: /usr/share/fonts/TTF/
+    owner: root
+    group: root
+    mode: "0644"
+  loop: "{{ ttf_files.files }}"

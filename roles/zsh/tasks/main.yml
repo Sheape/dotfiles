@@ -16,3 +16,13 @@
   loop:
     - zprofile
     - zshenv
+
+- name: "{{ category }} | Deploying Zsh Plugins"
+  become: true
+  ansible.builtin.copy:
+    src: "plugins"
+    dest: "/usr/share/zsh/"
+    owner: root
+    group: root
+    mode: "0755"
+    directory_mode: "0755"

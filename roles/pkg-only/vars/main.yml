@@ -257,6 +257,8 @@ packages:
     pkg_name: "void-repo-nonfree"
   - package: "Void Nonfree"
     pkg_name: "void-repo-nonfree"
+  - package: "Vivid"
+    pkg_name: "vivid"
   - package: "Wayland"
     pkg_name: "wayland"
   - package: "Wayland Devel"

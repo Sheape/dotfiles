@@ -53,3 +53,20 @@
     directory_mode: "0755"
     force: true
   when: not hypr_config.stat.exists
+
+- name: "{{ ansible_distribution }} (Config only) | Checking for Hyprpaper wallpaper"
+  ansible.builtin.stat:
+    path: "{{ ansible_env.HOME }}/media/wallpapers/catppuccin/wallpapers/misc/lonely-fish.png"
+  register: hyprpaper_config
+
+- name: "{{ ansible_distribution }} (Config only) | Creating Directory for wallpaper"
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/media/pics/wallpapers/catppuccin/wallpapers/misc/"
+  when: not hyprpaper_config.stat.exists
+
+- name: "{{ ansible_distribution }} (Config only) | Deploying Wallpaper"
+  ansible.builtin.copy:
+    src: "lonely-fish.png"
+    dest: "{{ ansible_env.HOME }}/media/pics/wallpapers/catppuccin/wallpapers/misc"
+    mode: "0644"
+  when: not hyprpaper_config.stat.exists

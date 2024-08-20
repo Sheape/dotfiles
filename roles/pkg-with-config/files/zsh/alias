@@ -3,8 +3,8 @@
 
 # Frontend to neovim: https://github.com/neovide/neovide
 alias \
-    ls="COLUMNS=50 exa -ah --icons" \
-    lsa="exa -lah --icons" \
+    ls="COLUMNS=50 eza -ah --icons" \
+    lsa="eza -lah --icons" \
     mv="mv -i" \
     rm="rm -i" \
     cp="cp -i" \
