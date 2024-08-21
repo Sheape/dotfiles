@@ -13,7 +13,7 @@
 
 - name: "{{ category }} | Checking for Doom Installation"
   ansible.builtin.stat:
-    path: "~/.config/emacs"
+    path: "{{ user_config }}/emacs"
   register: emacs_config
 
 - name: "{{ category }} | Run Tasks: Doom"
