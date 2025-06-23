@@ -6,11 +6,26 @@
 
 config_version: 2
 settings:
+  colors.webpage.bg:
+    global: white
+  colors.webpage.darkmode.enabled:
+    global: false
+  colors.webpage.darkmode.threshold.foreground:
+    global: 256
   content.blocking.method:
     global: auto
   content.desktop_capture:
     https://discord.com: true
     https://meet.google.com: true
+  content.javascript.clipboard:
+    https://app.insomnia.rest: access-paste
+    https://classroom.google.com: access-paste
+    https://console.neon.tech: access-paste
+    https://github.com: access-paste
+    https://partyrock.aws: access-paste
+    https://portal.azure.com: access-paste
+    https://sandbox-2.reactblade.portal.azure.net: access-paste
+    https://www.overleaf.com: access-paste
   content.media.audio_capture:
     https://coqui-voice-chat-with-mistral.hf.space: true
     https://discord.com: true
@@ -34,11 +49,15 @@ settings:
     https://www.aliexpress.com: false
     https://www.chess.com: false
     https://www.facebook.com: false
+    https://www.messenger.com: true
     https://www.reddit.com: false
     https://www.tiktok.com: false
     https://www.youtube.com: true
     https://zhujiworld.com: true
   content.register_protocol_handler:
+    https://calendar.google.com?cid=%25s: true
     https://mail.google.com?extsrc=mailto&url=%25s: true
     https://mail.proton.me#mailto=%25s: false
     https://mail.tutanota.com#url=%25s: true
+  fonts.web.family.fixed:
+    global: JetBrainsMono Nerd Font

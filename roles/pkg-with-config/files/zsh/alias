@@ -10,12 +10,18 @@ alias \
     cp="cp -i" \
     cf="config" \
     cl="clear" \
+    pf='cd ~/code/"$(\ls ~/code | fzf --reverse --border=rounded --header="Project")"' \
+    cupb='cd ~/docs/upb/"$(\ls ~/docs/upb | fzf --reverse --border=rounded --header="UP Baguio Directories")"' \
+    upb='xdg-open "$(fd -t f . ~/docs/upb | fzf --reverse --border=rounded --header="UP Baguio Files")"' \
     abook="abook -C ~/.config/abook/abookrc -f ~/.local/share/abook/addressbook" \
-    v="neovide --multigrid --nofork --novsync" \
+    tf="terraform" \
+    v="neovide" \
     vi="nvim" \
     e="emacsclient -c" \
     lg="lazygit" \
     lf="lfcd" \
+    yazi="yazicd" \
+    activate="source .venv/bin/activate" \
     man="batman" \
     grep="grep --color=auto" \
     diff="diff --color=auto" \
@@ -26,6 +32,7 @@ alias \
     check-update="sudo xbps-install -Snu" \
     remove="sudo xbps-remove" \
     calc="kalker" \
+    glow="PAGER=bat glow -p" \
     o="xdg-open"
 
 ## Warning: Watch out for version 600 on less

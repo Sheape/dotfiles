@@ -42,7 +42,8 @@ eval "$(lua ${plugins}/zsh-zlua/z.lua --init zsh enhanced once fzf)"
 
 # Terminal-specific keybindings
 ## Lf
-bindkey -s "^l" "lfcd\n"
+# bindkey -s "^l" "lfcd\n"
+bindkey -s "^l" "yazi\n"
 
 # Starship
 ## Fixes the bug, if a pre-configured theme is already selected, starship doesn't apply
