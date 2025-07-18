@@ -19,6 +19,7 @@ settings:
     https://meet.google.com: true
   content.javascript.clipboard:
     https://app.insomnia.rest: access-paste
+    https://catppuccin.com: access-paste
     https://classroom.google.com: access-paste
     https://console.neon.tech: access-paste
     https://github.com: access-paste
@@ -59,5 +60,6 @@ settings:
     https://mail.google.com?extsrc=mailto&url=%25s: true
     https://mail.proton.me#mailto=%25s: false
     https://mail.tutanota.com#url=%25s: true
+    https://outlook.live.com?mailtouri=%25s: true
   fonts.web.family.fixed:
     global: JetBrainsMono Nerd Font
