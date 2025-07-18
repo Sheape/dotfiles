@@ -31,7 +31,7 @@ alias \
     update="sudo xbps-install -Su" \
     check-update="sudo xbps-install -Snu" \
     remove="sudo xbps-remove" \
-    calc="kalker" \
+    calc="fend" \
     glow="PAGER=bat glow -p" \
     o="xdg-open"
 
@@ -79,3 +79,16 @@ alias \
     gcm="git commit -v" \
     gm="git merge" \
     gmt="git mergetool --tool=nvimdiff" \
+
+# Cargo aliases
+alias \
+    c="cargo" \
+    cr="cargo run" \
+    crr="cargo run --release" \
+    cb="cargo build" \
+    cbr="cargo build --release" \
+    ct="cargo test" \
+    ce="cargo run --example" \
+    ca="cargo add" \
+    ccl="cargo clean" \
+    cdoc="cargo doc"
