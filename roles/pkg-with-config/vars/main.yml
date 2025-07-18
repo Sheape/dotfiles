@@ -27,6 +27,8 @@ packages:
     pkg_name: "mpv"
   - package: "Neofetch"
     pkg_name: "neofetch"
+  - package: "Nushell"
+    pkg_name: "nushell"
   - package: "Qutebrowser"
     pkg_name: "qutebrowser"
   - package: "Sc-im"

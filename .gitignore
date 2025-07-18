@@ -7,3 +7,4 @@ __pycache__/
 callback_plugins/__pycache__/beautiful_output.cpython-312.pyc
 roles/pkg-with-config/files/lazygit/state.yml
 roles/pkg-with-config/files/zsh/.zcompdump
+roles/pkg-with-config/files/nushell/history.*
