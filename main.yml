@@ -1,50 +1,41 @@
----
 - name: Dotfiles config
   hosts: "localhost"
   connection: local
-
   pre_tasks:
     - name: Detect WSL
       ansible.builtin.import_tasks: pre_tasks/detect_wsl.yml
       tags:
         - always
-
     - name: Detect wsl
       ansible.builtin.debug:
         var: ansible_host_environment_is_wsl
       tags:
         - always
-
     - name: Confirm Windows PowerShell Execution Policy
       ansible.builtin.import_tasks: pre_tasks/powershell_executionpolicy.yml
       when: ansible_host_environment_is_wsl
       tags:
         - always
-
-    - name: Detect Host User
+    - name: Detect Host User WSL
       ansible.builtin.import_tasks: pre_tasks/whoami_wsl.yml
       when: ansible_host_environment_is_wsl
       tags:
         - always
-
     - name: Detect Host User
       ansible.builtin.import_tasks: pre_tasks/whoami.yml
       tags:
         - always
-
   tasks:
     # - name: Set roles
     #   ansible.builtin.set_fact:
     #     run_roles: "{{ ansible_run_tags != ['all'] and ansible_run_tags or default_roles | difference(exclude_roles | default([])) }}"
     #   tags:
     #     - always
-
     - name: Display roles
       ansible.builtin.debug:
         var: default_roles
-      # tags:
-      #   - always
-
+        # tags:
+        #   - always
     - name: Run roles
       ansible.builtin.include_role:
         name: "{{ roles_item }}"
