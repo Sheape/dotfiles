@@ -37,6 +37,9 @@ source $plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $plugins/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 source $plugins/zsh-vi-mode/zsh-vi-mode.zsh
 source $plugins/zsh-powerlevel10k/powerlevel10k.zsh-theme
+# export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
+# zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
+# source <(carapace _carapace)
 
 eval "$(lua ${plugins}/zsh-zlua/z.lua --init zsh enhanced once fzf)"
 
