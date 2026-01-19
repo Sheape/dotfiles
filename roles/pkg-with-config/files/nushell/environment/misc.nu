@@ -11,6 +11,7 @@ def get_ext_path [] {
         $"($env.HOME)/.encore/bin",
         $"($env.HOME)/.dotnet",
         $"($env.HOME)/.local/share/pnpm",
+        $"($env.HOME)/.cache/.bun/bin",
         $"($env.DENO_INSTALL)/bin",
         $"($env.ANDROID_HOME)/emulator",
         $"($env.ANDROID_HOME)/platform-tools",
@@ -19,12 +20,13 @@ def get_ext_path [] {
         "/usr/local/bin",
         "/usr/lib/ruby/gems/3.1.0/bin",
         "/usr/lib/qt6/bin",
-        "/opt/texlive/2024/bin/x86_64-linux"
+        "/opt/texlive/2025/bin/x86_64-linux"
     ]
 }
 
 export def --env init_env [] {
-    $env.PATH = ($env.PATH | append (get_ext_path))
+    # $env.PATH = ($env.PATH | append (get_ext_path))
+    $env.PATH = (get_ext_path | append ($env.PATH) | drop 1)
     $env.DISTRO = "void"
     $env.DISTRO_LIST = "void:gentoo"
     $env.WAYLAND_DISPLAY = "wayland-1"

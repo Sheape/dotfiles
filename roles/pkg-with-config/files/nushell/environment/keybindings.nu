@@ -46,5 +46,14 @@ export def get_keybindings [] {
                 cmd: "yazicd"
             }
         }
+        {
+            name: yazicd
+            modifier: control
+            keycode: char_j
+            mode: vi_normal
+            event: {
+                edit: InsertNewline
+            }
+        }
     ]
 }
